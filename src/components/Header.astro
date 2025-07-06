@@ -1,18 +1,68 @@
 ---
+import "../styles/global.css";
+import logo from "../assets/icons/JJenk89.svg";
+import burger from "../assets/icons/burger.svg";
+import cross from "../assets/icons/cross.svg";
+import sun from "../assets/icons/Sun-sm.svg";
+import moon from "../assets/icons/Night-sm.svg";
 
+interface Props {
+	src: string;
+}
 ---
 
 <header>
-	<div class="logo">LOGO</div>
-	<nav>
+	<div class="logo">
+		<img src={logo.src} alt="JJenk89 Logo" width="90" />
+	</div>
+	<nav class="desktop-nav hidden">
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="#projects">Projects</a></li>
-			<li><a href="#skills">Skills</a></li>
-			<li><a href="#contact">Contact</a></li>
+			<li><a href="#services">Services</a></li>
+			<li><a href="#contact">Get In Touch</a></li>
 		</ul>
 	</nav>
+
+	<div class="mode-toggle">
+		<img src={sun.src} alt="Light Mode Toggle" width="32" height="32" />
+		<img
+			src={moon.src}
+			alt="Dark Mode Toggle"
+			width="32"
+			height="32"
+			class="hidden"
+		/>
+	</div>
+
+	<div class="burger-container" id="menu-toggle">
+		<img
+			class="burger"
+			src={burger.src}
+			alt="Menu Open Button"
+			width="25"
+			height="25"
+			id="burger"
+		/>
+		<img
+			class="hidden"
+			src={cross.src}
+			alt="Menu Close Button"
+			width="25"
+			height="25"
+			id="cross"
+		/>
+	</div>
 </header>
+
+<nav class="mobile-nav hidden">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="#projects">Projects</a></li>
+		<li><a href="#services">Services</a></li>
+		<li><a href="#contact">Get In Touch</a></li>
+	</ul>
+</nav>
 
 <style>
 	header {
@@ -21,26 +71,104 @@
 		align-items: center;
 		padding: 1rem;
 		background-color: transparent;
-		color: black;
+		color: var(--colour-primary);
+		padding: 1.5rem;
+		margin: 2rem auto;
 	}
 
 	.logo {
 		font-size: 1.5rem;
-		font-weight: bold;
+		font-weight: var(--bold);
 	}
 
-	nav ul {
+	.mode-toggle {
+		margin-left: auto;
+		margin-right: 15%;
+	}
+
+	.desktop-nav ul {
 		list-style: none;
 		display: flex;
 		gap: 1rem;
 	}
 
-	nav a {
-		color: black;
+	.desktop-nav a {
+		color: var(--colour-primary);
+		font-family: var(--font-secondary);
+		font-weight: var(--extra-light);
+		font-style: italic;
 		text-decoration: none;
 	}
 
-	nav a:hover {
+	.desktop-nav a:hover {
 		text-decoration: underline;
 	}
+
+	.mobile-nav {
+		height: 100vh;
+		width: 100%;
+	}
+
+	.mobile-nav ul {
+		list-style: none;
+		align-items: center;
+		justify-items: center;
+		display: flex;
+		flex-direction: column;
+		gap: 7rem;
+		font-family: var(--font-secondary);
+		font-style: italic;
+		font-weight: var(--thin);
+		font-size: 2rem;
+		padding: 25%;
+	}
+
+	.mobile-nav a {
+		color: var(--colour-primary);
+		text-decoration: none;
+	}
 </style>
+
+<script>
+	const width = window.innerWidth;
+	const smallScreen = width < 500;
+	const midScreen = width >= 500 && width < 1024;
+	const largeScreen = width >= 1024;
+	// Mobile navigation toggle
+	const mobileNav = document.querySelector(".mobile-nav");
+	const desktopNav = document.querySelector(".desktop-nav");
+	const burger = document.querySelector(".burger");
+	const cross = document.querySelector("#cross");
+	const menuLinks = document.querySelectorAll(".mobile-nav a");
+
+	document.addEventListener("DOMContentLoaded", () => {
+		if (smallScreen) {
+			desktopNav?.classList.add("hidden");
+		} else if (midScreen || largeScreen) {
+			desktopNav?.classList.remove("hidden");
+			burger?.classList.add("hidden");
+		}
+		burger?.addEventListener("click", () => {
+			mobileNav?.classList.toggle("hidden");
+			document.body.classList.toggle("no-scroll");
+			burger?.classList.toggle("hidden");
+			cross?.classList.toggle("hidden");
+		});
+
+		cross?.addEventListener("click", () => {
+			mobileNav?.classList.add("hidden");
+			document.body.classList.remove("no-scroll");
+			burger?.classList.remove("hidden");
+			cross?.classList.add("hidden");
+		});
+
+		menuLinks.forEach((link) => {
+			link.addEventListener("click", () => {
+				mobileNav?.classList.add("hidden");
+				document.body.classList.toggle("no-scroll");
+				cross?.classList.add("hidden");
+				burger?.classList.toggle("hidden");
+			});
+		});
+	});
+</script>

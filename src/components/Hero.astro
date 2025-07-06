@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 type Props = {};
 
 const {} = Astro.props;
@@ -6,10 +7,99 @@ const {} = Astro.props;
 
 <section class="hero">
 	<div class="hero-content">
-		<h1 class="hero-title">Hi, I'm Jason</h1>
-		<h2 class="hero-subtitle">Frontend Web Developer</h2>
-		<p class="hero-description"></p>
+		<div class="hero-img">
+			<h1 class="hero-title">Hi, I'm Jason</h1>
+			<h2 class="hero-subtitle"><span>Frontend</span> Web Developer</h2>
+		</div>
+
+		<div class="hero-description">
+			<p>
+				I’m originally from the UK and currently based in Vienna,
+				Austria.
+			</p>
+			<p>
+				I’ve designed and coded fully tested, functional and visually
+				appealing web apps both for clients and as pet projects.
+			</p>
+			<p>I can help bring your website ideas to life.</p>
+		</div>
+		<div class="hero-btns">
+			<a class="view-btn" href="#projects">View My Work</a>
+			<a class="contact-btn" href="#contact">Get In Touch</a>
+		</div>
 	</div>
 </section>
 
-<style></style>
+<style>
+	.hero {
+		color: var(--colour-primary);
+		font-family: var(--font-secondary);
+		height: 100%;
+	}
+
+	.hero-img {
+		background:
+			linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+			url("./images/dark-bkg-sm.png") no-repeat center center;
+		background-size: cover;
+		width: 100%;
+		height: 20rem;
+	}
+
+	.hero-title {
+		font-weight: var(--extra-light);
+		font-size: 1.5rem;
+		padding: 2rem;
+	}
+
+	.hero-subtitle {
+		text-align: right;
+		font-weight: var(--semi-bold);
+		width: 14rem;
+		margin-left: auto;
+		margin-right: 2rem;
+		padding-top: 2rem;
+		font-size: 1.8rem;
+		line-height: 30px;
+	}
+	.hero-description {
+		font-family: var(--font-primary);
+		font-weight: var(--light);
+		margin: 4rem 2rem 4rem 2rem;
+		font-size: 1.4rem;
+	}
+
+	.hero-description p {
+		margin: 1rem 0;
+		line-height: 1.6rem;
+	}
+	span {
+		color: var(--gold);
+	}
+
+	.hero-btns {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 4.375rem;
+		margin-top: auto;
+	}
+
+	.hero-btns a {
+		border-radius: 10px;
+		border: var(--btn-border-primary);
+		font-family: var(--font-secondary);
+		padding: 0.9rem;
+		text-decoration: none;
+	}
+	.view-btn {
+		background-color: var(--gold);
+		color: var(--colour-secondary);
+	}
+
+	.contact-btn {
+		background-color: transparent;
+		font-family: var(--font-primary);
+		color: var(--colour-primary);
+	}
+</style>

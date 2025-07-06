@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+	<div class="footer-content">
+		<p>Follow me on</p>
+		<ul class="social-links">
+			<li>
+				<a
+					href="https://www.instagram.com/jjenk89"
+					target="_blank"
+					rel="noopener noreferrer">Instagram</a
+				>
+			</li>
+			<li>
+				<a
+					href="https://www.github.com/jjenk89"
+					target="_blank"
+					rel="noopener noreferrer">GitHub</a
+				>
+			</li>
+			<p>&copy; {currentYear} Jason Jenkinson. All rights reserved.</p>
+		</ul>
+	</div>
+</footer>
+
+<style>
+	footer {
+		color: var(--colour-primary);
+		font-family: var(--font-primary);
+		font-weight: var(--light);
+		font-size: 0.8rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+</style>
