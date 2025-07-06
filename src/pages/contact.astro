@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="contact">
+	<Header src="/assets/icons/JJenk89.svg" />
+	<section class="contact">
+		<h2 id="contact">Get in Touch</h2>
+
+		<p>
+			Like what you’ve seen? Fancy your own website? Want to give me a
+			job?!
+		</p>
+
+		<p>Then fill in the form below and let me know!</p>
+
+		<form action="">
+			<label for="name">Name:</label>
+			<input
+				type="text"
+				id="name"
+				name="name"
+				placeholder="Your Name"
+				required
+			/>
+
+			<label for="email">Email:</label>
+			<input
+				type="email"
+				id="email"
+				name="email"
+				placeholder="Your Email"
+				required
+			/>
+
+			<label for="message">Message:</label>
+			<textarea
+				id="message"
+				name="message"
+				rows="12"
+				placeholder="Your Message"
+				required></textarea>
+
+			<button type="submit">Send</button>
+		</form>
+	</section>
+</Layout>
+
+<style>
+	.contact {
+		height: 100vh;
+	}
+	h2 {
+		font-family: var(--font-secondary);
+		font-weight: var(--extra-light);
+		font-size: 2rem;
+		color: var(--colour-primary);
+		font-style: italic;
+		text-align: center;
+	}
+
+	p {
+		font-family: var(--font-primary);
+		font-weight: var(--regular);
+		color: var(--colour-primary);
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
+	}
+</style>

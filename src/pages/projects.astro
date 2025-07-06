@@ -1,0 +1,27 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="projects">
+	<Header src="/assets/icons/JJenk89.svg" />
+	<section class="projects">
+		<h2 id="projects">Featured Projects</h2>
+	</section>
+
+	<style>
+		.projects {
+			height: 100vh;
+		}
+
+		h2 {
+			font-family: var(--font-secondary);
+			font-weight: var(--extra-light);
+			font-size: 2rem;
+			color: var(--colour-primary);
+			font-style: italic;
+			text-align: center;
+		}
+	</style>
+</Layout>
