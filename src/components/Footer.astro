@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import insta from "../assets/icons/Instagram.svg";
+import github from "../assets/icons/GitHub.svg";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -11,18 +13,32 @@ const currentYear = new Date().getFullYear();
 				<a
 					href="https://www.instagram.com/jjenk89"
 					target="_blank"
-					rel="noopener noreferrer">Instagram</a
+					rel="noopener noreferrer"
 				>
+					<img
+						src={insta.src}
+						alt="Instagram Icon"
+						width="32"
+						height="32"
+					/>
+				</a>
 			</li>
 			<li>
 				<a
 					href="https://www.github.com/jjenk89"
 					target="_blank"
-					rel="noopener noreferrer">GitHub</a
+					rel="noopener noreferrer"
 				>
+					<img
+						src={github.src}
+						alt="GitHub Icon"
+						width="32"
+						height="32"
+					/>
+				</a>
 			</li>
-			<p>&copy; {currentYear} Jason Jenkinson. All rights reserved.</p>
 		</ul>
+		<p>&copy; {currentYear} Jason Jenkinson. All rights reserved.</p>
 	</div>
 </footer>
 
@@ -35,5 +51,17 @@ const currentYear = new Date().getFullYear();
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
+	}
+
+	.social-links {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+	}
+
+	.social-links li {
+		margin: 0 1rem;
 	}
 </style>

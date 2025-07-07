@@ -12,9 +12,9 @@ interface Props {
 ---
 
 <header>
-	<div class="logo">
+	<a class="logo" href="/">
 		<img src={logo.src} alt="JJenk89 Logo" width="90" />
-	</div>
+	</a>
 	<nav class="desktop-nav hidden">
 		<ul>
 			<li><a href="/">Home</a></li>
@@ -70,10 +70,9 @@ interface Props {
 		justify-content: space-between;
 		align-items: center;
 		padding: 1rem;
-		background-color: transparent;
+		background: rgba(255, 255, 255, 0);
 		color: var(--colour-primary);
 		padding: 1.5rem;
-		margin: 1rem auto;
 	}
 
 	.logo {

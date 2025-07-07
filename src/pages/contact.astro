@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="contact">
@@ -46,12 +47,10 @@ import Header from "../components/Header.astro";
 			<button type="submit">Send</button>
 		</form>
 	</section>
+	<Footer />
 </Layout>
 
 <style>
-	.contact {
-		height: 100vh;
-	}
 	h2 {
 		font-family: var(--font-secondary);
 		font-weight: var(--extra-light);

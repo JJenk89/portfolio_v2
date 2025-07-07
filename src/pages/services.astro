@@ -2,17 +2,26 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import palette from "../assets/icons/palette-white.svg";
 ---
 
 <Layout title="services">
-	<Header src="/assets/icons/JJenk89.svg" />
 	<section class="services">
+		<Header src="/assets/icons/JJenk89.svg" />
 		<h2 id="services">Services</h2>
 		<div class="cards">
 			<div class="card">
 				<h3>Web Design</h3>
-				<div class="icon">ICON</div>
-				<p>
+				<div class="icon">
+					<img
+						src={palette.src}
+						alt="Palette Icon"
+						height="50"
+						width="50"
+					/>
+				</div>
+				<p class="description">
 					I design clean, user-focused websites using modern tools
 					like Figma. My work prioritises intuitive UX, elegant UI,
 					and visual clarity while ensuring SEO best practices are
@@ -20,6 +29,7 @@ import Header from "../components/Header.astro";
 				</p>
 			</div>
 		</div>
+		<Footer />
 	</section>
 </Layout>
 
@@ -27,7 +37,8 @@ import Header from "../components/Header.astro";
 	.services {
 		color: var(--colour-primary);
 		font-family: var(--font-primary);
-		height: 100vh;
+		background: url("/images/services-dark-sm.png") no-repeat center center;
+		background-size: cover;
 	}
 
 	h2 {
@@ -37,6 +48,13 @@ import Header from "../components/Header.astro";
 		text-align: center;
 	}
 
+	h3 {
+		font-family: var(--font-secondary);
+		font-weight: var(--regular);
+		font-size: 2.5rem;
+		margin: 2rem auto;
+	}
+
 	.card {
 		display: flex;
 		flex-direction: column;
@@ -44,12 +62,14 @@ import Header from "../components/Header.astro";
 		justify-items: center;
 	}
 
-	h3 {
-		font-family: var(--font-secondary);
-		font-weight: var(--regular);
-	}
-
 	p {
 		font-weight: var(--light);
+		font-family: var(--font-primary);
+		max-width: 65ch;
+		text-align: left;
+		padding: 2rem;
+		margin: 2rem;
+		font-size: 1.2rem;
+		line-height: 2.5rem;
 	}
 </style>
