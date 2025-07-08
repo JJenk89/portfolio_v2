@@ -40,7 +40,7 @@ import Footer from "../components/Footer.astro";
 			<textarea
 				id="message"
 				name="message"
-				rows="12"
+				rows="8"
 				placeholder="Your Message"
 				required></textarea>
 
@@ -51,6 +51,10 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <style>
+	.contact {
+		height: 100dvh;
+		padding: 0 2rem;
+	}
 	h2 {
 		font-family: var(--font-secondary);
 		font-weight: var(--extra-light);
@@ -64,6 +68,9 @@ import Footer from "../components/Footer.astro";
 		font-family: var(--font-primary);
 		font-weight: var(--regular);
 		color: var(--colour-primary);
+		margin: 2rem 0 2rem 0;
+		max-width: 65ch;
+		line-height: 1.5rem;
 	}
 
 	form {
@@ -71,5 +78,43 @@ import Footer from "../components/Footer.astro";
 		flex-direction: column;
 		align-items: center;
 		margin: 0 auto;
+		max-width: 800px;
+	}
+
+	input {
+		border-top: none;
+		border-right: none;
+		border-left: 2px solid var(--gold);
+		border-bottom: 2px solid var(--gold);
+		border-radius: 5px;
+		height: 2rem;
+	}
+
+	input,
+	textarea {
+		font-family: var(--font-primary);
+		background-color: transparent;
+		color: var(--colour-primary);
+		width: 100%;
+		padding: 0.5rem;
+	}
+
+	textarea {
+		resize: none;
+		border: 2px solid var(--gold);
+		border-radius: 5px;
+	}
+
+	button {
+		font-family: var(--font-secondary);
+		color: var(--colour-primary);
+		background: transparent;
+		border: 2px solid var(--gold);
+		border-radius: 5px;
+		height: 2rem;
+		width: 6rem;
+		align-self: flex-start;
+		margin-top: 1rem;
+		cursor: pointer;
 	}
 </style>
