@@ -3,12 +3,73 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const projects = [
+	{
+		title: "Visuals by Francesca",
+		type: "Portfolio Site",
+		description:
+			"A portfolio site for a local photographer. The site showcases their photos and collects analytics data...",
+		screenshot: "./screenshots/visuals-sm.webp",
+		technologies: ["HTML", "CSS", "JavaScript", "GA4"],
+		liveLink: "https://visualsbyfrancesca.com",
+		githubLink: "https://github.com/JJenk89/fb_portfolio",
+		id: 1,
+	},
+	{
+		title: "Merrill-Reid Quiz",
+		type: "Online Quiz",
+		description:
+			"A quiz application built for Merrill-Reid. The app features multiple-choice questions and displays user results dynamically, improving communication skills for employees in any field.",
+		screenshot: "./screenshots/merrill-reid-sm.webp",
+		technologies: ["HTML", "CSS", "SASS", "TypeScript", "React"],
+		liveLink: "https://merrill-reid.vercel.app",
+		githubLink: "https://github.com/JJenk89/Merrill_Reid",
+		id: 2,
+	},
+	{
+		title: "Beercans & Co.",
+		type: "Brochure Site",
+		description:
+			"A brochure site for the pub Beercans & Co., showcasing their products and services.",
+		screenshot: "./screenshots/beercans-sm.webp",
+		technologies: ["HTML", "CSS", "JavaScript"],
+		liveLink: "https://jjenk89.github.io/Beercans/",
+		githubLink: "https://github.com/JJenk89/Beercans",
+		id: 3,
+	},
+	{
+		title: "To-Dos",
+		type: "To-Do List App",
+		description:
+			"A simple to-do list application built with HTML, CSS, and React. It allows users to add, remove, and mark tasks as completed. Includes local storage for task persistence and a native drag-and-drop feature for task reordering.",
+		screenshot: "./screenshots/todo-sm.webp",
+		technologies: ["HTML", "CSS", "JavaScript", "React"],
+		liveLink: "https://jjenk89.github.io/todo-app/",
+		githubLink: "https://github.com/JJenk89/todo-app",
+		id: 4,
+	},
+];
 ---
 
 <Layout title="projects">
 	<Header src="/assets/icons/JJenk89.svg" />
 	<section class="projects">
 		<h2 id="projects">Featured Projects</h2>
+		<div class="screenshots">
+			{
+				projects.map((project) => (
+					<div class="screenshot">
+						<img
+							src={project.screenshot}
+							alt=""
+							height="100"
+							width="100"
+						/>
+					</div>
+				))
+			}
+		</div>
 	</section>
 	<Footer />
 </Layout>

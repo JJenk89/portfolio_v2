@@ -4,6 +4,43 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import palette from "../assets/icons/palette-white.svg";
+import code from "../assets/icons/Code-white.svg";
+import react from "../assets/icons/React-white.svg";
+import writing from "../assets/icons/Writing-white.svg";
+
+const services = [
+	{
+		title: "Web Design",
+		description:
+			"I design clean, user-focused websites using modern tools like Figma. My work prioritises intuitive UX, elegant UI, and visual clarity while ensuring SEO best practices are built in from the start.",
+		icon: palette,
+		id: 1,
+	},
+
+	{
+		title: "Web Development",
+		description:
+			"I develop fast, accessible websites—from static pages to full brochure sites—crafted with precision and built to perform across all devices. Clean code and usability are at the heart of every project.",
+		icon: code,
+		id: 2,
+	},
+
+	{
+		title: "Web Apps",
+		description:
+			"I build modern web apps, blogs, and CMS platforms using React and current best practices. My focus is on performance, scalability, and user experience that meets real-world business needs.",
+		icon: react,
+		id: 3,
+	},
+
+	{
+		title: "Web Copywriting",
+		description:
+			"As a native English speaker, I write clear, concise, and engaging website copy tailored to your audience. I focus on tone, clarity, and SEO to ensure your message connects and converts.",
+		icon: writing,
+		id: 4,
+	},
+];
 ---
 
 <Layout title="services">
@@ -11,24 +48,43 @@ import palette from "../assets/icons/palette-white.svg";
 		<Header src="/assets/icons/JJenk89.svg" />
 		<h2 id="services">Services</h2>
 		<div class="cards">
-			<div class="card">
-				<h3>Web Design</h3>
-				<div class="icon">
-					<img
-						src={palette.src}
-						alt="Palette Icon"
-						height="50"
-						width="50"
-						loading="eager"
-					/>
-				</div>
-				<p class="description">
-					I design clean, user-focused websites using modern tools
-					like Figma. My work prioritises intuitive UX, elegant UI,
-					and visual clarity while ensuring SEO best practices are
-					built in from the start.
-				</p>
-			</div>
+			{
+				services.map((service) => (
+					<>
+						<div class="card">
+							<h3>{service.title}</h3>
+							<div class="icon" id={`icon${service.id}`}>
+								<img
+									src={service.icon.src}
+									alt={`${service.title} Icon`}
+									height="40"
+									width="40"
+									loading="eager"
+								/>
+							</div>
+							<dialog id={`dialog${service.id}`}>
+								<div class="dialog-content">
+									<h3>{service.title}</h3>
+									<img
+										src={service.icon.src}
+										alt={`${service.title} Icon`}
+										height="40"
+										width="40"
+										loading="eager"
+									/>
+									<p
+										class="description hidden"
+										id={`description${service.id}`}
+									>
+										{service.description}
+									</p>
+									<button>Close</button>
+								</div>
+							</dialog>
+						</div>
+					</>
+				))
+			}
 		</div>
 		<Footer />
 	</section>
@@ -40,7 +96,15 @@ import palette from "../assets/icons/palette-white.svg";
 		font-family: var(--font-primary);
 		background: url("/images/services-dark-sm.png") no-repeat center center;
 		background-size: cover;
-		height: 100dvh;
+		height: 100vh;
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 2rem;
+		padding: 2rem;
 	}
 
 	h2 {
@@ -53,7 +117,7 @@ import palette from "../assets/icons/palette-white.svg";
 	h3 {
 		font-family: var(--font-secondary);
 		font-weight: var(--regular);
-		font-size: 2.5rem;
+		font-size: 1rem;
 		margin: 2rem auto;
 	}
 
@@ -74,4 +138,63 @@ import palette from "../assets/icons/palette-white.svg";
 		font-size: 1.2rem;
 		line-height: 2.5rem;
 	}
+
+	dialog {
+		align-items: center;
+		background: var(--bkg-gradient-dark);
+		color: var(--colour-primary);
+		border: 2px solid var(--gold);
+		border-radius: 10px;
+		padding: 1rem;
+		justify-content: center;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.dialog-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	button {
+		font-family: var(--font-secondary);
+		color: var(--colour-primary);
+		background: transparent;
+		border: 2px solid var(--gold);
+		border-radius: 5px;
+		height: 3rem;
+		width: 6rem;
+		align-self: flex-start;
+		margin-top: 1rem;
+		cursor: pointer;
+	}
 </style>
+
+<script>
+	const icons = document.querySelectorAll(".icon");
+	const descriptions = document.querySelectorAll(".description");
+	const dialogs = document.querySelectorAll("dialog");
+	const closeButtons = document.querySelectorAll("dialog button");
+
+	icons.forEach((icon, index) => {
+		icon.addEventListener("click", () => {
+			const dialog = dialogs[index];
+			const description = descriptions[index];
+
+			if (dialog.open) {
+				dialog.close();
+			} else {
+				description.classList.remove("hidden");
+				dialog.showModal();
+			}
+		});
+	});
+
+	closeButtons.forEach((button, index) => {
+		button.addEventListener("click", () => {
+			const dialog = dialogs[index];
+			dialog.close();
+		});
+	});
+</script>

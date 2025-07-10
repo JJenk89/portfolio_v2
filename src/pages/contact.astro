@@ -23,7 +23,7 @@ import Footer from "../components/Footer.astro";
 				type="text"
 				id="name"
 				name="name"
-				placeholder="Your Name"
+				placeholder="your name"
 				required
 			/>
 
@@ -32,7 +32,7 @@ import Footer from "../components/Footer.astro";
 				type="email"
 				id="email"
 				name="email"
-				placeholder="Your Email"
+				placeholder="your email"
 				required
 			/>
 
@@ -41,7 +41,7 @@ import Footer from "../components/Footer.astro";
 				id="message"
 				name="message"
 				rows="8"
-				placeholder="Your Message"
+				placeholder="your message"
 				required></textarea>
 
 			<button type="submit">Send</button>
@@ -82,11 +82,6 @@ import Footer from "../components/Footer.astro";
 	}
 
 	input {
-		border-top: none;
-		border-right: none;
-		border-left: 2px solid var(--gold);
-		border-bottom: 2px solid var(--gold);
-		border-radius: 5px;
 		height: 2rem;
 	}
 
@@ -97,12 +92,15 @@ import Footer from "../components/Footer.astro";
 		color: var(--colour-primary);
 		width: 100%;
 		padding: 0.5rem;
+		border-top: none;
+		border-right: none;
+		border-left: 2px solid var(--gold);
+		border-bottom: 2px solid var(--gold);
+		border-radius: 5px;
 	}
 
 	textarea {
 		resize: none;
-		border: 2px solid var(--gold);
-		border-radius: 5px;
 	}
 
 	button {
@@ -111,7 +109,7 @@ import Footer from "../components/Footer.astro";
 		background: transparent;
 		border: 2px solid var(--gold);
 		border-radius: 5px;
-		height: 2rem;
+		height: 3rem;
 		width: 6rem;
 		align-self: flex-start;
 		margin-top: 1rem;
