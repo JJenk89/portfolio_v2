@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 const projects = [
 	{
 		title: "Visuals by Francesca",
-		type: "Portfolio Site",
+		type: "(Portfolio Site)",
 		description:
 			"A portfolio site for a local photographer. The site showcases their photos and collects analytics data...",
 		screenshot: "./screenshots/visuals-sm.webp",
@@ -18,7 +18,7 @@ const projects = [
 	},
 	{
 		title: "Merrill-Reid Quiz",
-		type: "Online Quiz",
+		type: "(Online Quiz)",
 		description:
 			"A quiz application built for Merrill-Reid. The app features multiple-choice questions and displays user results dynamically, improving communication skills for employees in any field.",
 		screenshot: "./screenshots/merrill-reid-sm.webp",
@@ -29,7 +29,7 @@ const projects = [
 	},
 	{
 		title: "Beercans & Co.",
-		type: "Brochure Site",
+		type: "(Brochure Site)",
 		description:
 			"A brochure site for the pub Beercans & Co., showcasing their products and services.",
 		screenshot: "./screenshots/beercans-sm.webp",
@@ -40,7 +40,7 @@ const projects = [
 	},
 	{
 		title: "To-Dos",
-		type: "To-Do List App",
+		type: "(To-Do List App)",
 		description:
 			"A simple to-do list application built with HTML, CSS, and React. It allows users to add, remove, and mark tasks as completed. Includes local storage for task persistence and a native drag-and-drop feature for task reordering.",
 		screenshot: "./screenshots/todo-sm.webp",
@@ -56,16 +56,35 @@ const projects = [
 	<Header src="/assets/icons/JJenk89.svg" />
 	<section class="projects">
 		<h2 id="projects">Featured Projects</h2>
-		<div class="screenshots">
+		<div class="cards">
 			{
 				projects.map((project) => (
-					<div class="screenshot">
-						<img
-							src={project.screenshot}
-							alt=""
-							height="100"
-							width="100"
-						/>
+					<div class="card">
+						<h3>{project.title}</h3>
+						<h4>{project.type}</h4>
+						<p>{project.description}</p>
+						<div class="tech-container">
+							{project.technologies.map((tech) => (
+								<span class="tech">{tech}</span>
+							))}
+						</div>
+
+						<div class="links">
+							<a
+								href={project.liveLink}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Live Site
+							</a>
+							<a
+								href={project.githubLink}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								GitHub
+							</a>
+						</div>
 					</div>
 				))
 			}
@@ -82,5 +101,103 @@ const projects = [
 		color: var(--colour-primary);
 		font-style: italic;
 		text-align: center;
+	}
+
+	h3 {
+		margin: 2rem;
+		font-family: var(--font-secondary);
+		font-weight: var(--semi-bold);
+		font-size: 1.5rem;
+	}
+
+	h4 {
+		font-family: var(--font-secondary);
+		font-weight: var(--extra-light);
+		font-size: 1.1rem;
+		color: var(--colour-primary);
+		text-align: center;
+		margin-left: 2rem;
+	}
+
+	p {
+		margin: 2rem;
+		text-align: left;
+		line-height: 2rem;
+		font-size: 1rem;
+		font-weight: var(--semi-bold);
+		font-family: var(--font-primary);
+	}
+
+	.projects {
+		color: var(--colour-primary);
+		font-family: var(--font-primary);
+		padding: 2rem;
+	}
+
+	.cards {
+		display: flex;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+		width: 85vw;
+		height: 100%;
+		margin: 2.5rem auto;
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-items: start;
+		background-color: rgb(4, 4, 4);
+		border-left: 5px solid var(--gold);
+		border-bottom: 1px solid var(--gold);
+		border-radius: 10px;
+		color: var(--colour-primary);
+		height: 650px;
+		width: 100%;
+		scroll-snap-align: start;
+		flex-shrink: 0;
+
+		margin-right: 100px;
+		border-radius: 10px;
+		transform-origin: center center;
+		transform: scale(1);
+		transition: transform 0.5s;
+		position: relative;
+		justify-content: space-evenly;
+	}
+
+	.tech-container {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 1rem 0 0 1.5rem;
+	}
+
+	.tech {
+		border: 2px solid var(--gold);
+		border-radius: 0.875rem;
+		background-color: rgba(248, 169, 16, 0.1);
+		font-size: 0.6rem;
+		margin: 0.5rem;
+		font-weight: var(--bold);
+		font-family: var(--font-secondary);
+		width: 5rem;
+		height: 1.7rem;
+		text-align: center;
+		align-content: center;
+	}
+
+	.links {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 2rem;
+
+		& a {
+			color: var(--colour-primary);
+			text-decoration: underline;
+		}
 	}
 </style>

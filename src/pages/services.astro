@@ -47,6 +47,7 @@ const services = [
 	<section class="services">
 		<Header src="/assets/icons/JJenk89.svg" />
 		<h2 id="services">Services</h2>
+		<p>Click on the icons to discover more about what I offer</p>
 		<div class="cards">
 			{
 				services.map((service) => (
@@ -96,7 +97,7 @@ const services = [
 		font-family: var(--font-primary);
 		background: url("/images/services-dark-sm.png") no-repeat center center;
 		background-size: cover;
-		height: 100vh;
+		min-height: 100vh;
 	}
 
 	.cards {
@@ -104,7 +105,7 @@ const services = [
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: repeat(2, 1fr);
 		gap: 2rem;
-		padding: 2rem;
+		margin: 10% 2rem 28% auto;
 	}
 
 	h2 {
@@ -134,7 +135,6 @@ const services = [
 		max-width: 65ch;
 		text-align: left;
 		padding: 2rem;
-		margin: 2rem;
 		font-size: 1.2rem;
 		line-height: 2.5rem;
 	}
@@ -147,7 +147,7 @@ const services = [
 		border-radius: 10px;
 		padding: 1rem;
 		justify-content: center;
-		margin: 0 auto;
+		margin: 10% auto;
 		width: 100%;
 	}
 
