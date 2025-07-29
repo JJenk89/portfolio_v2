@@ -1,8 +1,11 @@
 ---
 import "../styles/global.css";
 import logo from "../assets/icons/JJenk89.svg";
+import logoBlack from "../assets/icons/JJenk89_sm_drk.svg";
 import burger from "../assets/icons/burger.svg";
 import cross from "../assets/icons/cross.svg";
+import burgerLight from "../assets/icons/burger-light.svg";
+import crossLight from "../assets/icons/cross-light.svg";
 import sun from "../assets/icons/Sun-sm.svg";
 import moon from "../assets/icons/Night-sm.svg";
 
@@ -13,7 +16,18 @@ interface Props {
 
 <header>
 	<a class="logo" href="/">
-		<img src={logo.src} alt="JJenk89 Logo" width="90" />
+		<img
+			src={logo.src}
+			alt="JJenk89 Logo"
+			width="90"
+			class="dark-mode-icon"
+		/>
+		<img
+			src={logoBlack.src}
+			alt="JJenk89 Logo Black"
+			width="90"
+			class="light-mode-icon"
+		/>
 	</a>
 	<nav class="desktop-nav hidden">
 		<ul>
@@ -24,33 +38,61 @@ interface Props {
 		</ul>
 	</nav>
 
-	<div class="mode-toggle">
-		<img src={sun.src} alt="Light Mode Toggle" width="32" height="32" />
+	<div class="mode-toggle" id="mode-toggle">
 		<img
+			class="sun"
+			src={sun.src}
+			alt="Light Mode Toggle"
+			width="32"
+			height="32"
+			id="sun"
+		/>
+		<img
+			class="moon hidden"
 			src={moon.src}
 			alt="Dark Mode Toggle"
 			width="32"
 			height="32"
-			class="hidden"
+			id="moon"
 		/>
 	</div>
 
 	<div class="burger-container" id="menu-toggle">
+		<!-- Dark Mode Burger -->
 		<img
-			class="burger"
+			class="burger dark-mode-icon"
 			src={burger.src}
 			alt="Menu Open Button"
 			width="25"
 			height="25"
-			id="burger"
+			id="burgerDark"
 		/>
+		<!-- Light Mode Burger -->
 		<img
-			class="hidden"
+			class="burger light-mode-icon"
+			src={burgerLight.src}
+			alt="Menu Open Button Light Mode"
+			width="25"
+			height="25"
+			id="burgerLight"
+		/>
+		<!-- Dark Mode Cross -->
+		<img
+			class="hidden dark-mode-icon"
 			src={cross.src}
 			alt="Menu Close Button"
 			width="25"
 			height="25"
-			id="cross"
+			id="crossDark"
+		/>
+		<!-- Light Mode Cross -->
+		<img
+			class="hidden light-mode-icon"
+			src={crossLight.src}
+			alt="Menu Close Button Light Mode"
+			width="25"
+			height="25"
+			id="crossLight"
 		/>
 	</div>
 </header>
@@ -120,11 +162,6 @@ interface Props {
 		font-weight: var(--thin);
 		font-size: 2rem;
 	}
-
-	.mobile-nav a {
-		color: var(--colour-primary);
-		text-decoration: none;
-	}
 </style>
 
 <script>
@@ -135,9 +172,14 @@ interface Props {
 	// Mobile navigation toggle
 	const mobileNav = document.querySelector(".mobile-nav");
 	const desktopNav = document.querySelector(".desktop-nav");
-	const burger = document.querySelector(".burger");
-	const cross = document.querySelector("#cross");
+	const burger = document.querySelector("#burgerDark");
+	const cross = document.querySelector("#crossDark");
+	const burgerLight = document.querySelector("#burgerLight");
+	const crossLight = document.querySelector("#crossLight");
 	const menuLinks = document.querySelectorAll(".mobile-nav a");
+	const modeToggle = document.querySelector("#mode-toggle");
+	const sun = document.querySelector("#sun");
+	const moon = document.querySelector("#moon");
 
 	document.addEventListener("DOMContentLoaded", () => {
 		if (smallScreen) {
@@ -160,6 +202,20 @@ interface Props {
 			cross?.classList.add("hidden");
 		});
 
+		burgerLight?.addEventListener("click", () => {
+			mobileNav?.classList.toggle("hidden");
+			document.body.classList.toggle("no-scroll");
+			burgerLight?.classList.toggle("hidden");
+			crossLight?.classList.toggle("hidden");
+		});
+
+		crossLight?.addEventListener("click", () => {
+			mobileNav?.classList.add("hidden");
+			document.body.classList.remove("no-scroll");
+			burgerLight?.classList.remove("hidden");
+			crossLight?.classList.add("hidden");
+		});
+
 		menuLinks.forEach((link) => {
 			link.addEventListener("click", () => {
 				mobileNav?.classList.add("hidden");
@@ -168,5 +224,23 @@ interface Props {
 				burger?.classList.toggle("hidden");
 			});
 		});
+
+		modeToggle?.addEventListener("click", () => {
+			sun?.classList.toggle("hidden");
+			moon?.classList.toggle("hidden");
+			toggleTheme();
+		});
+
+		function toggleTheme() {
+			const currentTheme =
+				document.documentElement.getAttribute("data-theme");
+			const newTheme = currentTheme === "dark" ? "light" : "dark";
+			document.documentElement.setAttribute("data-theme", newTheme);
+			localStorage.setItem("theme", newTheme);
+		}
+
+		// Initialise theme on page load from localStorage
+		const savedTheme = localStorage.getItem("theme") || "light";
+		document.documentElement.setAttribute("data-theme", savedTheme);
 	});
 </script>
