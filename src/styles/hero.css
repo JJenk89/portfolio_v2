@@ -1,0 +1,66 @@
+/* Hero & Homepage Styles */
+
+[data-theme="dark"] .hero-img {
+	background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+		url("./images/dark-bkg-sm.png") no-repeat center center;
+	background-size: cover;
+	width: 100%;
+	height: 20rem;
+}
+
+[data-theme="light"] .hero {
+	background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+		url("./images/light-bkg-sm.png") no-repeat center center;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+}
+
+.hero-subtitle {
+	text-align: right;
+	font-weight: var(--semi-bold);
+	width: 14rem;
+	margin-left: auto;
+	margin-right: 2rem;
+	padding-top: 2rem;
+	font-size: 1.8rem;
+	line-height: 30px;
+}
+
+[data-theme="light"] .hero-subtitle {
+	margin-bottom: 50%;
+}
+
+.hero-btns a {
+	border-radius: 10px;
+	border: var(--btn-border-dark);
+	font-family: var(--font-secondary);
+	padding: 0.9rem;
+	text-decoration: none;
+}
+
+[data-theme="light"] .hero-btns a {
+	border: var(--btn-border-light);
+}
+
+.view-btn {
+	background-color: var(--gold);
+	color: var(--colour-secondary);
+}
+
+[data-theme="light"] .view-btn {
+	background-color: var(--colour-secondary);
+	color: var(--gold);
+	border: 2px solid var(--colour-secondary) !important;
+}
+
+.contact-btn {
+	background-color: transparent;
+	font-family: var(--font-primary);
+	color: var(--colour-primary);
+}
+
+[data-theme="light"] .contact-btn {
+	color: var(--colour-primary);
+	border: 2px solid var(--colour-primary) !important;
+}

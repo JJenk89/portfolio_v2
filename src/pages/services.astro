@@ -1,12 +1,21 @@
 ---
 import "../styles/global.css";
+import "../styles/services.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+//Icon imports light
 import palette from "../assets/icons/palette-white.svg";
 import code from "../assets/icons/Code-white.svg";
 import react from "../assets/icons/React-white.svg";
 import writing from "../assets/icons/Writing-white.svg";
+
+//Icon imports dark
+import paletteDark from "../assets/icons/Palette.svg";
+import codeDark from "../assets/icons/Code.svg";
+import reactDark from "../assets/icons/React.svg";
+import writingDark from "../assets/icons/Writing.svg";
 
 const services = [
 	{
@@ -14,6 +23,7 @@ const services = [
 		description:
 			"I design clean, user-focused websites using modern tools like Figma. My work prioritises intuitive UX, elegant UI, and visual clarity while ensuring SEO best practices are built in from the start.",
 		icon: palette,
+		iconDark: paletteDark,
 		id: 1,
 	},
 
@@ -22,6 +32,7 @@ const services = [
 		description:
 			"I develop fast, accessible websites—from static pages to full brochure sites—crafted with precision and built to perform across all devices. Clean code and usability are at the heart of every project.",
 		icon: code,
+		iconDark: codeDark,
 		id: 2,
 	},
 
@@ -30,6 +41,7 @@ const services = [
 		description:
 			"I build modern web apps, blogs, and CMS platforms using React and current best practices. My focus is on performance, scalability, and user experience that meets real-world business needs.",
 		icon: react,
+		iconDark: reactDark,
 		id: 3,
 	},
 
@@ -38,6 +50,7 @@ const services = [
 		description:
 			"As a native English speaker, I write clear, concise, and engaging website copy tailored to your audience. I focus on tone, clarity, and SEO to ensure your message connects and converts.",
 		icon: writing,
+		iconDark: writingDark,
 		id: 4,
 	},
 ];
@@ -57,6 +70,15 @@ const services = [
 							<div class="icon" id={`icon${service.id}`}>
 								<img
 									src={service.icon.src}
+									class="dark-icon"
+									alt={`${service.title} Icon`}
+									height="40"
+									width="40"
+									loading="eager"
+								/>
+								<img
+									src={service.iconDark.src}
+									class="light-icon"
 									alt={`${service.title} Icon`}
 									height="40"
 									width="40"
@@ -92,14 +114,6 @@ const services = [
 </Layout>
 
 <style>
-	.services {
-		color: var(--colour-primary);
-		font-family: var(--font-primary);
-		background: url("/images/services-dark-sm.png") no-repeat center center;
-		background-size: cover;
-		min-height: 100vh;
-	}
-
 	.cards {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);

@@ -1,0 +1,17 @@
+[data-theme="light"] h2 {
+	font-family: var(--font-secondary);
+	font-weight: var(--extra-light);
+	font-size: 2rem;
+	color: var(--colour-secondary);
+	font-style: italic;
+	text-align: center;
+}
+
+[data-theme="dark"] h2 {
+	font-family: var(--font-secondary);
+	font-weight: var(--extra-light);
+	font-size: 2rem;
+	color: var(--colour-primary);
+	font-style: italic;
+	text-align: center;
+}
