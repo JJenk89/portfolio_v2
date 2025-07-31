@@ -113,3 +113,24 @@ h4 {
 	font-style: italic;
 	text-align: center;
 }
+
+.slider-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
+	padding: 2rem;
+}
+
+.slider-button {
+	height: 20px;
+	width: 20px;
+	background-color: var(--colour-primary);
+	border-radius: 50%;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.active {
+	background-color: var(--gold);
+}

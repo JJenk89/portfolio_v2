@@ -90,6 +90,38 @@ const projects = [
 				))
 			}
 		</div>
+		<div class="slider-buttons">
+			{
+				projects.map((projectIds) => (
+					<div
+						class="slider-button"
+						data-project-id={projectIds.id}
+					/>
+				))
+			}
+		</div>
 	</section>
 	<Footer />
 </Layout>
+
+<script>
+	const sliderButtons = document.querySelectorAll(".slider-button");
+
+	sliderButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			const projectId = button.getAttribute("data-project-id");
+			const card = document.querySelector(
+				`.card:nth-child(${projectId})`
+			);
+			card?.scrollIntoView({ behavior: "smooth" });
+
+			const activeButton = document.querySelector(
+				".slider-button.active"
+			);
+			if (activeButton) {
+				activeButton.classList.remove("active");
+			}
+			button.classList.add("active");
+		});
+	});
+</script>
