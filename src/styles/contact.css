@@ -1,0 +1,105 @@
+.contact {
+	height: 100dvh;
+	padding: 0 2rem;
+}
+
+h2 {
+	font-family: var(--font-secondary);
+	font-weight: var(--extra-light);
+	font-size: 2rem;
+	color: var(--colour-primary);
+	font-style: italic;
+	text-align: center;
+}
+
+[data-theme="light"] h2 {
+	color: var(--colour-secondary);
+}
+
+.contact {
+	& p {
+		font-family: var(--font-primary);
+		font-weight: var(--regular);
+		color: var(--colour-primary);
+		margin: 2rem 0 2rem 0;
+		max-width: 65ch;
+		line-height: 1.5rem;
+	}
+}
+
+[data-theme="light"] .contact {
+	& p {
+		color: var(--colour-secondary);
+	}
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+input {
+	height: 2rem;
+}
+
+input,
+textarea {
+	font-family: var(--font-primary);
+	background-color: transparent;
+	width: 100%;
+	padding: 0.5rem;
+	border-top: none;
+	border-right: none;
+	border-radius: 5px;
+	margin: 1rem auto;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+	color: var(--colour-primary);
+	border-left: 2px solid var(--gold);
+	border-bottom: 2px solid var(--gold);
+}
+
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+	color: var(--colour-secondary);
+
+	border-left: 2px solid var(--colour-secondary);
+	border-bottom: 2px solid var(--colour-secondary);
+}
+
+textarea {
+	resize: none;
+}
+
+button {
+	font-family: var(--font-secondary);
+	color: var(--colour-primary);
+	background: transparent;
+	border: 2px solid var(--gold);
+	border-radius: 5px;
+	height: 3rem;
+	width: 6rem;
+	align-self: flex-start;
+	margin-top: 1rem;
+	cursor: pointer;
+}
+
+[data-theme="light"] button {
+	color: var(--colour-secondary);
+	background: transparent;
+	border: 2px solid var(--colour-secondary);
+}
+
+label {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden; /* Hides the label visually but keeps it accessible for screen readers */
+}

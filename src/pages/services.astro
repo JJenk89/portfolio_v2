@@ -60,7 +60,9 @@ const services = [
 	<section class="services">
 		<Header src="/assets/icons/JJenk89.svg" />
 		<h2 id="services">Services</h2>
-		<p>Click on the icons to discover more about what I offer</p>
+		<p class="discover-text">
+			Click on the icons to discover more about what I offer
+		</p>
 		<div class="cards">
 			{
 				services.map((service) => (
@@ -94,6 +96,15 @@ const services = [
 										height="40"
 										width="40"
 										loading="eager"
+										class="dark-icon"
+									/>
+									<img
+										src={service.iconDark.src}
+										alt={`${service.title} Icon`}
+										height="40"
+										width="40"
+										loading="eager"
+										class="light-icon"
 									/>
 									<p
 										class="description hidden"
@@ -112,78 +123,6 @@ const services = [
 		<Footer />
 	</section>
 </Layout>
-
-<style>
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(2, 1fr);
-		gap: 2rem;
-		margin: 10% 2rem 28% auto;
-	}
-
-	h2 {
-		font-weight: var(--extra-light);
-		font-size: 2rem;
-		font-style: italic;
-		text-align: center;
-	}
-
-	h3 {
-		font-family: var(--font-secondary);
-		font-weight: var(--regular);
-		font-size: 1rem;
-		margin: 2rem auto;
-	}
-
-	.card {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-items: center;
-	}
-
-	p {
-		font-weight: var(--light);
-		font-family: var(--font-primary);
-		max-width: 65ch;
-		text-align: left;
-		padding: 2rem;
-		font-size: 1.2rem;
-		line-height: 2.5rem;
-	}
-
-	dialog {
-		align-items: center;
-		background: var(--bkg-gradient-dark);
-		color: var(--colour-primary);
-		border: 2px solid var(--gold);
-		border-radius: 10px;
-		padding: 1rem;
-		justify-content: center;
-		margin: 10% auto;
-		width: 100%;
-	}
-
-	.dialog-content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	button {
-		font-family: var(--font-secondary);
-		color: var(--colour-primary);
-		background: transparent;
-		border: 2px solid var(--gold);
-		border-radius: 5px;
-		height: 3rem;
-		width: 6rem;
-		align-self: flex-start;
-		margin-top: 1rem;
-		cursor: pointer;
-	}
-</style>
 
 <script>
 	const icons = document.querySelectorAll(".icon");

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/contact.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -49,70 +50,3 @@ import Footer from "../components/Footer.astro";
 	</section>
 	<Footer />
 </Layout>
-
-<style>
-	.contact {
-		height: 100dvh;
-		padding: 0 2rem;
-	}
-	h2 {
-		font-family: var(--font-secondary);
-		font-weight: var(--extra-light);
-		font-size: 2rem;
-		color: var(--colour-primary);
-		font-style: italic;
-		text-align: center;
-	}
-
-	p {
-		font-family: var(--font-primary);
-		font-weight: var(--regular);
-		color: var(--colour-primary);
-		margin: 2rem 0 2rem 0;
-		max-width: 65ch;
-		line-height: 1.5rem;
-	}
-
-	form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin: 0 auto;
-		max-width: 800px;
-	}
-
-	input {
-		height: 2rem;
-	}
-
-	input,
-	textarea {
-		font-family: var(--font-primary);
-		background-color: transparent;
-		color: var(--colour-primary);
-		width: 100%;
-		padding: 0.5rem;
-		border-top: none;
-		border-right: none;
-		border-left: 2px solid var(--gold);
-		border-bottom: 2px solid var(--gold);
-		border-radius: 5px;
-	}
-
-	textarea {
-		resize: none;
-	}
-
-	button {
-		font-family: var(--font-secondary);
-		color: var(--colour-primary);
-		background: transparent;
-		border: 2px solid var(--gold);
-		border-radius: 5px;
-		height: 3rem;
-		width: 6rem;
-		align-self: flex-start;
-		margin-top: 1rem;
-		cursor: pointer;
-	}
-</style>

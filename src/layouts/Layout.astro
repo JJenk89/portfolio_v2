@@ -6,6 +6,10 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon-lrg.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>JJenk89 - Web Developer</title>
+		<script is:inline>
+			const preferredTheme = localStorage.getItem("theme") || "dark";
+			document.documentElement.setAttribute("data-theme", preferredTheme);
+		</script>
 	</head>
 	<body>
 		<slot />

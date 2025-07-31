@@ -1,5 +1,40 @@
 /* Hero & Homepage Styles */
 
+.hero {
+	color: var(--colour-primary);
+	font-family: var(--font-secondary);
+}
+
+.hero-title {
+	font-weight: var(--extra-light);
+	font-size: 1.5rem;
+	padding: 2rem;
+}
+
+.hero-description {
+	font-family: var(--font-primary);
+	font-weight: var(--light);
+	margin: 4rem 2rem 4rem 2rem;
+	font-size: 1.4rem;
+}
+
+.hero-description p {
+	margin: 2.5rem 0;
+	line-height: 2rem;
+	max-width: 65ch;
+}
+span {
+	color: var(--gold);
+}
+
+.hero-btns {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4.375rem;
+	padding-bottom: 5rem;
+}
+
 [data-theme="dark"] .hero-img {
 	background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
 		url("./images/dark-bkg-sm.png") no-repeat center center;
@@ -13,7 +48,6 @@
 		url("./images/light-bkg-sm.png") no-repeat center center;
 	background-size: cover;
 	width: 100%;
-	height: 100vh;
 }
 
 .hero-subtitle {

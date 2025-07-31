@@ -1,3 +1,41 @@
+.cards {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 2rem;
+	margin: 10% 2rem 28% auto;
+}
+
+h2 {
+	font-weight: var(--extra-light);
+	font-size: 2rem;
+	font-style: italic;
+	text-align: center;
+}
+
+h3 {
+	font-family: var(--font-secondary);
+	font-weight: var(--regular);
+	font-size: 1rem;
+	margin: 2rem auto;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+}
+.discover-text {
+	font-weight: var(--light);
+	font-family: var(--font-primary);
+	max-width: 65ch;
+	text-align: left;
+	padding: 2rem;
+	font-size: 1.2rem;
+	line-height: 2.5rem;
+}
+
 [data-theme="light"] .services {
 	color: var(--colour-secondary);
 	font-family: var(--font-primary);
@@ -12,6 +50,66 @@
 	background: url("/images/services-dark-sm.png") no-repeat center center;
 	background-size: cover;
 	min-height: 100vh;
+}
+
+[data-theme="dark"] dialog {
+	align-items: center;
+	background: var(--bkg-gradient-dark);
+	color: var(--colour-primary);
+	border: 2px solid var(--gold);
+	border-radius: 10px;
+	padding: 1rem;
+	justify-content: center;
+	margin: 10% auto;
+	width: 100%;
+}
+[data-theme="light"] dialog {
+	align-items: center;
+	background: var(--bkg-gradient-light);
+	color: var(--colour-secondary);
+	border: 2px solid var(--colour-secondary);
+	border-radius: 10px;
+	padding: 1rem;
+	justify-content: center;
+	margin: 10% auto;
+	width: 100%;
+}
+
+.dialog-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	& .description {
+		padding: 2rem;
+		max-width: 65ch;
+		line-height: 26px;
+	}
+}
+
+[data-theme="dark"] button {
+	font-family: var(--font-secondary);
+	color: var(--colour-primary);
+	background: transparent;
+	border: 2px solid var(--gold);
+	border-radius: 5px;
+	height: 3rem;
+	width: 6rem;
+	align-self: flex-start;
+	margin-top: 1rem;
+	cursor: pointer;
+}
+[data-theme="light"] button {
+	font-family: var(--font-secondary);
+	color: var(--colour-secondary);
+	background: transparent;
+	border: 2px solid var(--colour-secondary);
+	border-radius: 5px;
+	height: 3rem;
+	width: 6rem;
+	align-self: flex-start;
+	margin-top: 1rem;
+	cursor: pointer;
 }
 
 [data-theme="light"] .dark-icon,

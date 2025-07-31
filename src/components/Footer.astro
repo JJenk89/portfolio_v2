@@ -1,7 +1,15 @@
 ---
 import "../styles/global.css";
+import "../styles/footer.css";
+
+// Dark mode icons
 import insta from "../assets/icons/Instagram.svg";
 import github from "../assets/icons/GitHub.svg";
+
+// Light mode icons
+import instaDark from "../assets/icons/Instagram-Dark.svg";
+import githubDark from "../assets/icons/GitHub-Dark.svg";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -20,6 +28,14 @@ const currentYear = new Date().getFullYear();
 						alt="Instagram Icon"
 						width="32"
 						height="32"
+						class="dark-mode-icon"
+					/>
+					<img
+						src={instaDark.src}
+						alt="Instagram Icon"
+						width="32"
+						height="32"
+						class="light-mode-icon"
 					/>
 				</a>
 			</li>
@@ -34,6 +50,14 @@ const currentYear = new Date().getFullYear();
 						alt="GitHub Icon"
 						width="32"
 						height="32"
+						class="dark-mode-icon"
+					/>
+					<img
+						src={githubDark.src}
+						alt="GitHub Icon"
+						width="32"
+						height="32"
+						class="light-mode-icon"
 					/>
 				</a>
 			</li>
@@ -41,32 +65,3 @@ const currentYear = new Date().getFullYear();
 		<p>&copy; {currentYear} Jason Jenkinson. All rights reserved.</p>
 	</div>
 </footer>
-
-<style>
-	footer {
-		color: var(--colour-primary);
-		font-family: var(--font-primary);
-		font-weight: var(--light);
-		font-size: 0.8rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		margin-top: auto;
-
-		width: 100%;
-	}
-
-	.social-links {
-		list-style: none;
-		padding: 0.5rem;
-		display: flex;
-		align-items: center;
-		margin: 0.5rem auto;
-		justify-content: center;
-	}
-
-	.social-links li {
-		margin: 0 1rem;
-	}
-</style>
