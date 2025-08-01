@@ -98,3 +98,12 @@ span {
 	color: var(--colour-primary);
 	border: 2px solid var(--colour-primary) !important;
 }
+
+/*  */ /*  */ /*  */
+/*  */ /*  */ /*  */
+/* TABLET STYLES */
+/*  */ /*  */ /*  */
+/*  */ /*  */ /*  */
+
+@media screen and (min-width: 768px) {
+}

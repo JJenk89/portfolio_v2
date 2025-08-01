@@ -78,3 +78,24 @@ body {
 [data-theme="light"] .mobile-nav a {
 	color: var(--colour-secondary);
 }
+
+/* TABLET STYLES */
+@media screen and (min-width: 768px) {
+	.mobile-nav {
+		display: none;
+	}
+
+	.desktop-nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 2rem;
+	}
+
+	.mode-toggle {
+		margin-left: 0;
+		margin-right: 0;
+		cursor: pointer;
+	}
+}
