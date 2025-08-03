@@ -121,3 +121,41 @@ h3 {
 [data-theme="dark"] .dark-icon {
 	display: block;
 }
+
+@media screen and (min-width: 768px) {
+	h2 {
+		font-size: 2.5rem;
+		margin: 2rem auto;
+	}
+
+	h3 {
+		font-size: 1.4rem;
+	}
+
+	.discover-text {
+		font-size: 1.2rem;
+		line-height: 2.8rem;
+		margin: 2rem;
+		text-align: center;
+	}
+
+	.dark-icon,
+	.light-icon {
+		height: 50px;
+		width: 50px;
+	}
+
+	[data-theme="dark"] dialog,
+	[data-theme="light"] dialog {
+		width: 60%;
+	}
+
+	.dialog-content {
+		& .description {
+			padding: 2rem;
+			max-width: 65ch;
+			line-height: 32px;
+			font-size: 1.2rem;
+		}
+	}
+}

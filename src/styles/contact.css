@@ -1,6 +1,9 @@
 .contact {
 	height: 100dvh;
-	padding: 0 2rem;
+	padding: 4rem 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 h2 {
@@ -34,11 +37,8 @@ h2 {
 }
 
 form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	margin: 0 auto;
-	max-width: 800px;
+	max-width: 500px;
 }
 
 input {

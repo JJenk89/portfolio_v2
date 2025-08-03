@@ -151,3 +151,28 @@ h4 {
 	background-color: var(--gold);
 	border: 2px solid var(--gold);
 }
+
+@media screen and (min-width: 768px) {
+	.cards {
+		width: 60vw;
+	}
+
+	.card {
+		height: 550px;
+		margin-right: 50px;
+	}
+
+	.tech {
+		width: 4rem;
+		height: 1.5rem;
+		font-size: 0.5rem;
+	}
+
+	h3 {
+		font-size: 1.2rem;
+	}
+
+	h4 {
+		font-size: 1rem;
+	}
+}

@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import "../styles/header.css";
+
 import logo from "../assets/icons/JJenk89.svg";
 import logoBlack from "../assets/icons/JJenk89_sm_drk.svg";
 import burger from "../assets/icons/burger.svg";
@@ -105,64 +107,6 @@ interface Props {
 		<li><a href="/contact">Get In Touch</a></li>
 	</ul>
 </nav>
-
-<style>
-	header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1rem;
-		background: rgba(255, 255, 255, 0);
-		color: var(--colour-primary);
-		padding: 1.5rem;
-	}
-
-	.logo {
-		font-size: 1.5rem;
-		font-weight: var(--bold);
-	}
-
-	.mode-toggle {
-		margin-left: auto;
-		margin-right: 15%;
-	}
-
-	.desktop-nav ul {
-		list-style: none;
-		display: flex;
-		gap: 1rem;
-	}
-
-	.desktop-nav a {
-		color: var(--colour-primary);
-		font-family: var(--font-secondary);
-		font-weight: var(--extra-light);
-		font-style: italic;
-		text-decoration: none;
-	}
-
-	.desktop-nav a:hover {
-		text-decoration: underline;
-	}
-
-	.mobile-nav {
-		height: 100vh;
-		width: 100%;
-	}
-
-	.mobile-nav ul {
-		list-style: none;
-		align-items: center;
-		justify-items: center;
-		display: flex;
-		flex-direction: column;
-		gap: 5rem;
-		font-family: var(--font-secondary);
-		font-style: italic;
-		font-weight: var(--thin);
-		font-size: 2rem;
-	}
-</style>
 
 <script>
 	const width = window.innerWidth;
