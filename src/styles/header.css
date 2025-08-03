@@ -6,6 +6,7 @@ header {
 	background: rgba(255, 255, 255, 0);
 	color: var(--colour-primary);
 	padding: 1.5rem;
+	height: 150px;
 }
 
 .logo {
@@ -74,6 +75,41 @@ header {
 	}
 
 	[data-theme="light"] .burger-container {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.logo > img {
+		height: 100px;
+		width: 200px;
+		padding: 0 0 0 4rem;
+	}
+
+	.desktop-nav a {
+		font-size: 1.2rem;
+		padding: 0.5rem 1rem;
+	}
+	.desktop-nav a:hover {
+		color: var(--gold);
+	}
+
+	[data-theme="light"] .desktop-nav a {
+		color: var(--colour-primary);
+	}
+	[data-theme="light"] .desktop-nav a:hover {
+		color: var(--gold);
+	}
+	[data-theme="dark"] .white-logo {
+		display: inline-block;
+	}
+	[data-theme="light"] .white-logo {
+		display: inline-block;
+	}
+	[data-theme="dark"] .black-logo {
+		display: inline-block;
+	}
+	[data-theme="light"] .black-logo {
 		display: none;
 	}
 }

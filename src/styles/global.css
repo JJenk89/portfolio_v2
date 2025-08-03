@@ -93,3 +93,12 @@ body {
 		padding: 1rem 2rem;
 	}
 }
+
+/* DESKTOP STYLES */
+@media screen and (min-width: 1024px) {
+	[data-theme="light"] body {
+		background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+			url("/images/light-bkg-lg.png") no-repeat center center;
+		background-size: cover;
+	}
+}

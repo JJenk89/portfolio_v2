@@ -103,3 +103,9 @@ label {
 	width: 1px;
 	overflow: hidden; /* Hides the label visually but keeps it accessible for screen readers */
 }
+
+@media screen and (min-width: 1024px) {
+	.contact {
+		height: calc(100vh - 214px);
+	}
+}
