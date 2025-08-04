@@ -123,6 +123,12 @@ span {
 /* DESKTOP STYLES */
 
 @media screen and (min-width: 1024px) {
+	[data-theme="light"] body {
+		background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+			url("/images/light-bkg-lg.png") no-repeat center center;
+		background-size: cover;
+	}
+
 	[data-theme="dark"] .hero {
 		background: url("/images/dark-bkg-lg.png") no-repeat center bottom;
 		background-size: contain;
@@ -144,8 +150,11 @@ span {
 
 	.hero-description {
 		margin: 0 0 0 auto;
-		padding: 0 4rem 0 0;
+		padding: 0 10% 0 0;
 		text-align: right;
+		align-content: center;
+		max-width: 50ch;
+		text-wrap: balance;
 		grid-column: 2 / 3;
 		grid-row: 1 / 2;
 	}
@@ -153,12 +162,11 @@ span {
 	.hero-description p {
 		font-size: 2rem;
 		line-height: 2.2rem;
-		max-width: 65ch;
 	}
 
 	.hero-btns {
 		margin: 0 0 0 auto;
-		padding: 0 4rem 0 0;
+		padding: 0 10% 0 0;
 		justify-content: end;
 		grid-column: 2 / 3;
 		grid-row: 2 / 3;
@@ -174,16 +182,58 @@ span {
 	.hero-subtitle {
 		margin: 0 2rem 0 0;
 		padding: 2rem 0 0 4rem;
-		font-size: 3.5rem;
-		line-height: 64px;
-		width: 50%;
+		font-size: 4.8rem;
+		line-height: 90px;
+		width: 71%;
 		text-align: left;
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;
 		align-content: center;
+		letter-spacing: 2px;
 	}
 
 	[data-theme="light"] .hero-subtitle {
 		margin-bottom: 0;
+	}
+
+	[data-theme="light"] .desktop-nav a {
+		color: var(--colour-primary);
+	}
+	[data-theme="light"] .desktop-nav a:hover {
+		color: var(--gold);
+		transition: ease-in-out 0.2s;
+	}
+	[data-theme="dark"] .white-logo {
+		display: inline-block;
+	}
+	[data-theme="light"] .white-logo {
+		display: inline-block;
+	}
+	[data-theme="dark"] .black-logo {
+		display: none;
+	}
+	[data-theme="light"] .black-logo {
+		display: none;
+	}
+
+	.hero-btns a {
+		font-size: 1.4rem;
+		height: 6rem;
+		width: 12rem;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	[data-theme="dark"] .view-btn {
+		border: 2px solid var(--gold);
+		background-color: var(--colour-primary);
+		color: var(--colour-secondary);
+	}
+	[data-theme="dark"] .hero-btns a:hover {
+		background-color: var(--gold);
+		color: var(--colour-secondary);
+		transition: ease-in-out 0.2s;
 	}
 }

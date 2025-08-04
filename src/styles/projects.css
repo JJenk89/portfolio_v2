@@ -176,3 +176,85 @@ h4 {
 		font-size: 1rem;
 	}
 }
+
+/* DESKTOP STYLES */
+
+@media screen and (min-width: 1024px) {
+	.cards {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.card {
+		position: relative;
+		margin-right: 0px;
+		flex-shrink: 1;
+		margin-right: 100px;
+		border-radius: 10px;
+
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+			transition: transform 0.3s ease;
+		}
+	}
+
+	.card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	}
+
+	.card-slide-content {
+		position: absolute;
+		border-radius: 10px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: inherit;
+		padding: 1.5rem;
+		transform: translateY(100%);
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		opacity: 0;
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+			opacity 0.3s ease;
+	}
+
+	.card:hover .card-slide-content {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	.card:hover .card-slide-content::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			to top,
+			rgb(0, 0, 0) 45%,
+			rgba(0, 0, 0, 0.982) 70%,
+			transparent 100%
+		);
+		z-index: -1;
+	}
+
+	.tech {
+		width: 3.5rem;
+		height: 1.3rem;
+		font-size: 0.4rem;
+	}
+
+	[data-theme="dark"] h2,
+	[data-theme="light"] h2 {
+		font-size: 4rem;
+	}
+
+	.slider-buttons {
+		display: none;
+	}
+}

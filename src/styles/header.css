@@ -82,34 +82,20 @@ header {
 @media screen and (min-width: 1024px) {
 	.logo > img {
 		height: 100px;
-		width: 200px;
+		width: 300px;
 		padding: 0 0 0 4rem;
 	}
 
 	.desktop-nav a {
-		font-size: 1.2rem;
+		font-size: 1.6rem;
 		padding: 0.5rem 1rem;
 	}
 	.desktop-nav a:hover {
 		color: var(--gold);
 	}
 
-	[data-theme="light"] .desktop-nav a {
-		color: var(--colour-primary);
-	}
-	[data-theme="light"] .desktop-nav a:hover {
-		color: var(--gold);
-	}
-	[data-theme="dark"] .white-logo {
-		display: inline-block;
-	}
-	[data-theme="light"] .white-logo {
-		display: inline-block;
-	}
-	[data-theme="dark"] .black-logo {
-		display: inline-block;
-	}
-	[data-theme="light"] .black-logo {
-		display: none;
+	.mode-toggle > img {
+		height: 60px;
+		width: 60px;
 	}
 }

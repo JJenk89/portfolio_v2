@@ -108,4 +108,12 @@ label {
 	.contact {
 		height: calc(100vh - 214px);
 	}
+
+	h2 {
+		font-size: 4rem;
+	}
+
+	input {
+		height: 3rem;
+	}
 }
