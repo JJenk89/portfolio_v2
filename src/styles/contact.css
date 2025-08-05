@@ -113,7 +113,27 @@ label {
 		font-size: 4rem;
 	}
 
+	.contact {
+		& p {
+			max-width: 65ch;
+			text-wrap: balance;
+			font-size: 1.5rem;
+		}
+	}
+
 	input {
 		height: 3rem;
+		font-size: 1.2rem;
+	}
+
+	textarea {
+		height: 10rem;
+		font-size: 1.2rem;
+	}
+
+	button {
+		height: 4rem;
+		width: 8rem;
+		font-size: 1.2rem;
 	}
 }

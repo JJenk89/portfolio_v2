@@ -190,8 +190,10 @@ h4 {
 		position: relative;
 		margin-right: 0px;
 		flex-shrink: 1;
-		margin-right: 100px;
+		margin-right: 40px;
 		border-radius: 10px;
+		height: 800px;
+		width: 400px;
 
 		& img {
 			width: 100%;
@@ -199,6 +201,13 @@ h4 {
 			object-fit: cover;
 			border-radius: 10px;
 			transition: transform 0.3s ease;
+		}
+	}
+
+	.projects {
+		& p {
+			font-size: 1.2rem;
+			line-height: 2.5rem;
 		}
 	}
 
@@ -244,9 +253,9 @@ h4 {
 	}
 
 	.tech {
-		width: 3.5rem;
-		height: 1.3rem;
-		font-size: 0.4rem;
+		width: 7rem;
+		height: 2rem;
+		font-size: 0.9rem;
 	}
 
 	[data-theme="dark"] h2,

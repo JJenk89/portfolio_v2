@@ -168,11 +168,13 @@ h3 {
 
 	h3 {
 		font-size: 2rem;
+		margin: 0;
 	}
 
 	.icon > img {
 		height: 64px;
 		width: 64px;
+		margin: 2rem auto;
 	}
 
 	.discover-text {
@@ -183,13 +185,25 @@ h3 {
 
 	.cards {
 		margin: 0 0 0 auto;
+		justify-items: center;
+		align-items: center;
 	}
 
 	.card {
-		padding: 4rem;
+		padding: 0;
 	}
 
-	[data-theme="dark"] .services {
-		height: calc(100vh - 214px);
+	.desktop-description {
+		font-size: 1.4rem;
+		line-height: 2.5rem;
+		max-width: 40ch;
+		text-wrap: balance;
+		text-align: left;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.discover-text {
+		display: none;
 	}
 }

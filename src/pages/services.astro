@@ -86,6 +86,14 @@ const services = [
 									width="40"
 									loading="eager"
 								/>
+								<div class="desktop-text">
+									<p
+										class="desktop-description hidden"
+										id={`description${service.id}`}
+									>
+										{service.description}
+									</p>
+								</div>
 							</div>
 							<dialog id={`dialog${service.id}`}>
 								<div class="dialog-content">
@@ -129,20 +137,48 @@ const services = [
 	const descriptions = document.querySelectorAll(".description");
 	const dialogs = document.querySelectorAll("dialog");
 	const closeButtons = document.querySelectorAll("dialog button");
+	const width = window.innerWidth;
+	const desktopDescriptions = document.querySelectorAll(
+		".desktop-description"
+	);
 
+	const iconClickHandlers: (() => void)[] = [];
+
+	function dialogOpener(index: number) {
+		const dialog = dialogs[index];
+		const description = descriptions[index];
+
+		if (dialog.open) {
+			dialog.close();
+		} else {
+			description.classList.remove("hidden");
+			dialog.showModal();
+		}
+	}
+
+	// Create and store the click handlers
 	icons.forEach((icon, index) => {
-		icon.addEventListener("click", () => {
-			const dialog = dialogs[index];
-			const description = descriptions[index];
-
-			if (dialog.open) {
-				dialog.close();
-			} else {
-				description.classList.remove("hidden");
-				dialog.showModal();
-			}
-		});
+		const clickHandler = () => {
+			dialogOpener(index);
+		};
+		iconClickHandlers.push(clickHandler);
 	});
+
+	function addListener() {
+		icons.forEach((icon, index) => {
+			// Add the stored function reference
+			icon.addEventListener("click", iconClickHandlers[index]);
+		});
+	}
+
+	if (width > 1024) {
+		desktopDescriptions.forEach((description) => {
+			description.classList.remove("hidden");
+		});
+	} else {
+		// Add listeners on mobile
+		addListener();
+	}
 
 	closeButtons.forEach((button, index) => {
 		button.addEventListener("click", () => {
