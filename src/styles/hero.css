@@ -150,7 +150,7 @@ span {
 
 	.hero-description {
 		margin: 0 0 0 auto;
-		padding: 0 10% 0 0;
+		padding: 0 20% 0 0;
 		text-align: right;
 		align-content: center;
 		max-width: 50ch;
@@ -160,20 +160,20 @@ span {
 	}
 
 	.hero-description p {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		line-height: 2.2rem;
 	}
 
 	.hero-btns {
 		margin: 0 0 0 auto;
-		padding: 0 10% 0 0;
+		padding: 0 20% 0 0;
 		justify-content: end;
 		grid-column: 2 / 3;
 		grid-row: 2 / 3;
 	}
 
 	.hero-title {
-		font-size: 3.5rem;
+		font-size: 2.5rem;
 		padding: 0 0 0 4rem;
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;
@@ -182,8 +182,8 @@ span {
 	.hero-subtitle {
 		margin: 0 2rem 0 0;
 		padding: 2rem 0 0 4rem;
-		font-size: 4.8rem;
-		line-height: 90px;
+		font-size: 2.8rem;
+		line-height: 50px;
 		width: 71%;
 		text-align: left;
 		grid-column: 1 / 2;
@@ -217,9 +217,9 @@ span {
 	}
 
 	.hero-btns a {
-		font-size: 1.4rem;
-		height: 6rem;
-		width: 12rem;
+		font-size: 1rem;
+		height: 4rem;
+		width: 9rem;
 		text-align: center;
 		display: flex;
 		flex-direction: column;
@@ -233,6 +233,12 @@ span {
 	}
 	[data-theme="dark"] .hero-btns a:hover {
 		background-color: var(--gold);
+		color: var(--colour-secondary);
+		transition: ease-in-out 0.2s;
+	}
+
+	[data-theme="light"] .hero-btns a:hover {
+		background-color: var(--colour-primary);
 		color: var(--colour-secondary);
 		transition: ease-in-out 0.2s;
 	}

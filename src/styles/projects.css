@@ -183,6 +183,7 @@ h4 {
 	.cards {
 		position: relative;
 		width: 100%;
+		justify-content: center;
 		overflow: hidden;
 	}
 
@@ -192,7 +193,7 @@ h4 {
 		flex-shrink: 1;
 		margin-right: 40px;
 		border-radius: 10px;
-		height: 800px;
+		height: 500px;
 		width: 400px;
 
 		& img {
@@ -260,7 +261,7 @@ h4 {
 
 	[data-theme="dark"] h2,
 	[data-theme="light"] h2 {
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 
 	.slider-buttons {

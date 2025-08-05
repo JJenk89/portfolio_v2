@@ -105,35 +105,33 @@ label {
 }
 
 @media screen and (min-width: 1024px) {
-	.contact {
-		height: calc(100vh - 214px);
-	}
-
 	h2 {
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 
 	.contact {
+		height: 100%;
+
 		& p {
 			max-width: 65ch;
 			text-wrap: balance;
-			font-size: 1.5rem;
+			font-size: 1.2rem;
 		}
 	}
 
 	input {
 		height: 3rem;
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 
 	textarea {
 		height: 10rem;
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 
 	button {
 		height: 4rem;
 		width: 8rem;
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 }

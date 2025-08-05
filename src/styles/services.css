@@ -162,25 +162,19 @@ h3 {
 
 @media screen and (min-width: 1024px) {
 	h2 {
-		font-size: 4rem;
+		font-size: 3rem;
 		margin: 2rem auto;
 	}
 
 	h3 {
-		font-size: 2rem;
+		font-size: 1.6rem;
 		margin: 0;
 	}
 
 	.icon > img {
-		height: 64px;
-		width: 64px;
+		height: 50px;
+		width: 50px;
 		margin: 2rem auto;
-	}
-
-	.discover-text {
-		font-size: 1.5rem;
-		margin: 2rem auto;
-		text-align: center;
 	}
 
 	.cards {
@@ -194,7 +188,7 @@ h3 {
 	}
 
 	.desktop-description {
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 		line-height: 2.5rem;
 		max-width: 40ch;
 		text-wrap: balance;
