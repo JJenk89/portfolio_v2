@@ -38,7 +38,8 @@ h2 {
 
 form {
 	margin: 0 auto;
-	max-width: 500px;
+	max-width: 800px;
+	width: 80%;
 }
 
 input {
@@ -101,7 +102,15 @@ label {
 	border: 0;
 	height: 1px;
 	width: 1px;
-	overflow: hidden; /* Hides the label visually but keeps it accessible for screen readers */
+	overflow: hidden; /* keeps it accessible for screen readers */
+}
+
+.error {
+	color: var(--colour-error);
+	font-family: var(--font-primary);
+	font-weight: var(--bold);
+	margin-top: 0.5rem;
+	font-size: 0.9rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -109,11 +118,15 @@ label {
 		font-size: 3rem;
 	}
 
+	form {
+		width: 400px;
+	}
+
 	.contact {
 		height: 100%;
 
 		& p {
-			max-width: 65ch;
+			max-width: 21ch;
 			text-wrap: balance;
 			font-size: 1.2rem;
 		}

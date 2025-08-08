@@ -11,7 +11,7 @@ const projects = [
 		type: "(Portfolio Site)",
 		description:
 			"A portfolio site for a local photographer. The site showcases their photos and collects analytics data...",
-		screenshot: "./screenshots/visuals-sm.webp",
+		screenshot: "./screenshots/visuals-mob.webp",
 		technologies: ["HTML", "CSS", "JavaScript", "GA4"],
 		liveLink: "https://visualsbyfrancesca.com",
 		githubLink: "https://github.com/JJenk89/fb_portfolio",
@@ -22,7 +22,7 @@ const projects = [
 		type: "(Online Quiz)",
 		description:
 			"A quiz application built for Merrill-Reid. The app features multiple-choice questions and displays user results dynamically, improving communication skills for employees in any field.",
-		screenshot: "./screenshots/merrill-reid-sm.webp",
+		screenshot: "./screenshots/merrill-mob.webp",
 		technologies: ["HTML", "CSS", "SASS", "TypeScript", "React"],
 		liveLink: "https://merrill-reid.vercel.app",
 		githubLink: "https://github.com/JJenk89/Merrill_Reid",
@@ -33,7 +33,7 @@ const projects = [
 		type: "(Brochure Site)",
 		description:
 			"A brochure site for the pub Beercans & Co., showcasing their products and services.",
-		screenshot: "./screenshots/beercans-sm.webp",
+		screenshot: "./screenshots/beercans-mob.webp",
 		technologies: ["HTML", "CSS", "JavaScript"],
 		liveLink: "https://jjenk89.github.io/Beercans/",
 		githubLink: "https://github.com/JJenk89/Beercans",
@@ -44,7 +44,7 @@ const projects = [
 		type: "(To-Do List App)",
 		description:
 			"A to-do list application allowing users to add, remove, and mark tasks as completed. Includes local storage for task persistence and a native drag-and-drop feature for task reordering.",
-		screenshot: "./screenshots/todo-sm.webp",
+		screenshot: "./screenshots/todo-mob.webp",
 		technologies: ["HTML", "CSS", "JavaScript", "React"],
 		liveLink: "https://jjenk89.github.io/todo-app/",
 		githubLink: "https://github.com/JJenk89/todo-app",
@@ -57,6 +57,10 @@ const projects = [
 	<Header src="/assets/icons/JJenk89.svg" />
 	<section class="projects">
 		<h2 id="projects">Featured Projects</h2>
+		<p class="instructions">
+			Here are some of my recent projects. Tap or hover on the cards to
+			view more details.
+		</p>
 		<div class="cards">
 			{
 				projects.map((project) => (
@@ -65,6 +69,9 @@ const projects = [
 							<img
 								src={project.screenshot}
 								alt={`${project.title} screenshot`}
+								class="card-img"
+								id="card-img"
+								draggable="false"
 							/>
 							<div class="card-slide-content">
 								<div class="tech-container">
@@ -116,6 +123,10 @@ const projects = [
 	const sliderButtons = document.querySelectorAll(".slider-button");
 	const cards = document.querySelectorAll(".card");
 	const cardsContainer = document.querySelector(".cards");
+	const img = document.querySelectorAll("#card-img");
+	const hasHover = window.matchMedia(
+		"(hover: hover) and (pointer: fine)"
+	).matches;
 
 	// Set the first button as active by default
 	sliderButtons[0].classList.add("active");
@@ -186,4 +197,30 @@ const projects = [
 		observerOptions
 	);
 	cards.forEach((card) => observer.observe(card));
+	if (!hasHover) {
+		cards.forEach((card) => {
+			card.addEventListener("click", (e) => {
+				// Prevent event bubbling to avoid conflicts
+				e.stopPropagation();
+
+				// Toggle active state for this card
+				const isActive = card.classList.contains("active");
+
+				// Remove active class from all cards first
+				cards.forEach((c) => c.classList.remove("active"));
+
+				// If this card wasn't active, make it active
+				if (!isActive) {
+					card.classList.add("active");
+				}
+			});
+		});
+
+		// Close card slide content when clicking outside
+		document.addEventListener("click", (e) => {
+			if (!e.target || !(e.target as Element).closest(".card")) {
+				cards.forEach((card) => card.classList.remove("active"));
+			}
+		});
+	}
 </script>

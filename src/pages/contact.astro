@@ -12,41 +12,255 @@ import Footer from "../components/Footer.astro";
 		<h2 id="contact">Get in Touch</h2>
 
 		<p>
-			Like what you’ve seen? Fancy your own website? Want to give me a
+			Like what you've seen? Fancy your own website? Want to give me a
 			job?!
 		</p>
 
 		<p>Then fill in the form below and let me know!</p>
 
-		<form action="">
+		<!-- Add form message container -->
+		<div id="form-message" class="form-message" style="display: none;">
+		</div>
+
+		<form action="" id="contact-form" method="post">
 			<label for="name">Name:</label>
-			<input
-				type="text"
-				id="name"
-				name="name"
-				placeholder="your name"
-				required
-			/>
+			<div class="form-group">
+				<input
+					type="text"
+					id="name"
+					name="name"
+					placeholder="your name"
+					maxlength="50"
+					aria-describedby="name-error"
+					required
+				/>
+				<div class="error" id="name-error" aria-live="polite"></div>
+			</div>
 
 			<label for="email">Email:</label>
-			<input
-				type="email"
-				id="email"
-				name="email"
-				placeholder="your email"
-				required
-			/>
+			<div class="form-group">
+				<input
+					type="email"
+					id="email"
+					name="email"
+					placeholder="your email"
+					maxlength="100"
+					aria-describedby="email-error"
+					required
+				/>
+				<div class="error" id="email-error" aria-live="polite"></div>
+			</div>
 
 			<label for="message">Message:</label>
-			<textarea
-				id="message"
-				name="message"
-				rows="8"
-				placeholder="your message"
-				required></textarea>
+			<div class="form-group">
+				<textarea
+					id="message"
+					name="message"
+					rows="8"
+					placeholder="your message"
+					required
+					maxlength="500"></textarea>
+				<div class="error" id="message-error" aria-live="polite"></div>
+			</div>
 
-			<button type="submit">Send</button>
+			<div class="form-group">
+				<button type="submit" class="submit-btn">
+					<span class="btn-text">Send</span>
+					<span class="btn-loading" style="display: none;"
+						>Sending...</span
+					>
+				</button>
+			</div>
 		</form>
 	</section>
-	<Footer />
 </Layout>
+<Footer />
+
+<script>
+	// Type definitions
+	interface FormElements extends HTMLFormControlsCollection {
+		name: HTMLInputElement;
+		email: HTMLInputElement;
+		message: HTMLTextAreaElement;
+	}
+
+	interface ContactForm extends HTMLFormElement {
+		readonly elements: FormElements;
+	}
+
+	const form = document.getElementById("contact-form") as ContactForm;
+	const submitBtn = form?.querySelector(".submit-btn") as HTMLButtonElement;
+	const btnText = submitBtn?.querySelector(".btn-text") as HTMLSpanElement;
+	const btnLoading = submitBtn?.querySelector(
+		".btn-loading"
+	) as HTMLSpanElement;
+	const formMessage = document.getElementById(
+		"form-message"
+	) as HTMLDivElement;
+
+	// Clear previous error messages
+	function clearErrors(): void {
+		const errorElements = form?.querySelectorAll(".error");
+		errorElements?.forEach((el) => (el.textContent = ""));
+	}
+
+	// Display field errors
+	function displayFieldErrors(errors: string[]): void {
+		errors.forEach((error) => {
+			const field = error.toLowerCase();
+			let errorElement: HTMLElement | null = null;
+
+			if (field.includes("name")) {
+				errorElement = document.getElementById("name-error");
+			} else if (field.includes("email")) {
+				errorElement = document.getElementById("email-error");
+			} else if (field.includes("message")) {
+				errorElement = document.getElementById("message-error");
+			}
+
+			if (errorElement) {
+				errorElement.textContent = error;
+			}
+		});
+	}
+
+	// Show form message
+	function showMessage(
+		message: string,
+		type: "success" | "error" | ""
+	): void {
+		if (!formMessage) return;
+
+		formMessage.textContent = message;
+		formMessage.className = "form-message";
+
+		if (type) {
+			formMessage.classList.add(type);
+			formMessage.style.display = "block";
+		} else {
+			formMessage.style.display = "none";
+		}
+	}
+
+	// Set loading state
+	function setLoading(isLoading: boolean): void {
+		if (!submitBtn || !btnText || !btnLoading) return;
+
+		submitBtn.disabled = isLoading;
+		btnText.style.display = isLoading ? "none" : "inline";
+		btnLoading.style.display = isLoading ? "inline" : "none";
+	}
+
+	// Client-side validation
+	function validateForm(formData: FormData): string[] {
+		const errors: string[] = [];
+
+		const name = formData.get("name") as string;
+		const email = formData.get("email") as string;
+		const message = formData.get("message") as string;
+
+		if (!name?.trim()) {
+			errors.push("Name is required");
+		}
+
+		if (!email?.trim()) {
+			errors.push("Email is required");
+		} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+			errors.push("Please enter a valid email address");
+		}
+
+		if (!message?.trim()) {
+			errors.push("Message is required");
+		} else if (message.trim().length < 10) {
+			errors.push("Message must be at least 10 characters long");
+		}
+
+		return errors;
+	}
+
+	if (form) {
+		form.addEventListener("submit", async function (e: Event) {
+			e.preventDefault();
+
+			clearErrors();
+			showMessage("", "");
+
+			const formData = new FormData(form);
+
+			const validationErrors = validateForm(formData);
+			if (validationErrors.length > 0) {
+				displayFieldErrors(validationErrors);
+				return;
+			}
+
+			setLoading(true);
+
+			try {
+				const response = await fetch("/api/contact", {
+					method: "POST",
+					body: formData,
+				});
+
+				const result = await response.json();
+
+				if (response.ok && result.success) {
+					showMessage(
+						"Thank you! Your message has been sent successfully.",
+						"success"
+					);
+					form.reset();
+				} else {
+					if (result.details && Array.isArray(result.details)) {
+						displayFieldErrors(result.details);
+					}
+					showMessage(
+						result.error ||
+							"Failed to send message. Please try again.",
+						"error"
+					);
+				}
+			} catch (error) {
+				console.error("Form submission error:", error);
+				showMessage(
+					"Network error. Please check your connection and try again.",
+					"error"
+				);
+			} finally {
+				setLoading(false);
+			}
+		});
+
+		// Real-time validation feedback
+		form.querySelectorAll("input, textarea").forEach((field) => {
+			field.addEventListener(
+				"blur",
+				function (this: HTMLInputElement | HTMLTextAreaElement) {
+					const errorElement = document.getElementById(
+						`${this.name}-error`
+					);
+					if (!errorElement) return;
+
+					let error = "";
+
+					if (this.hasAttribute("required") && !this.value.trim()) {
+						error = `${this.name.charAt(0).toUpperCase() + this.name.slice(1)} is required`;
+					} else if (
+						this.type === "email" &&
+						this.value &&
+						!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value)
+					) {
+						error = "Please enter a valid email address";
+					} else if (
+						this.name === "message" &&
+						this.value.trim().length > 0 &&
+						this.value.trim().length < 10
+					) {
+						error = "Message must be at least 10 characters long";
+					}
+
+					errorElement.textContent = error;
+				}
+			);
+		});
+	}
+</script>

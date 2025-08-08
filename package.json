@@ -9,7 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^8.2.5",
     "astro": "^5.11.0",
+    "nodemailer": "^7.0.5",
     "vite": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17"
   }
 }
