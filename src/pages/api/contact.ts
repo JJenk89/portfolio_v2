@@ -123,14 +123,14 @@ function generateEmailContent(data: ContactFormData) {
         .content { background-color: #ffffff; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
         .field { margin-bottom: 15px; }
         .label { font-weight: bold; color: #555; }
-        .message-box { background-color: #f9f9f9; padding: 15px; border-left: 4px solid #007cba; margin-top: 10px; }
+        .message-box { background-color: #f9f9f9; padding: 15px; border-left: 4px solid #f8a910; margin-top: 10px; }
       </style>
     </head>
     <body>
       <div class="container">
         <div class="header">
-          <h2>New Contact Form Submission</h2>
-          <p>You've received a new message from your portfolio website.</p>
+          <h2>New Contact Form Message</h2>
+          <p>New message from portfolio contact form.</p>
         </div>
         <div class="content">
           <div class="field">
@@ -151,7 +151,7 @@ function generateEmailContent(data: ContactFormData) {
           </div>
         </div>
         <div style="margin-top: 20px; font-size: 12px; color: #666;">
-          <p>This message was sent from your portfolio contact form at ${new Date().toLocaleString()}.</p>
+          <p>This message was sent from the contact form at ${new Date().toLocaleString()}.</p>
         </div>
       </div>
     </body>
@@ -315,7 +315,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   } catch (error) {
     console.error('Email sending error:', error);
     
-    // Return generic error to client (don't expose internal details)
+    // Return generic error to client
     return new Response(
       JSON.stringify({ 
         success: false, 

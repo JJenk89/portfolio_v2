@@ -1,9 +1,22 @@
 .contact {
-	height: 100dvh;
-	padding: 4rem 2rem;
+	height: 125vh;
+	padding: 1rem 2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.contact-text {
+	text-align: center;
+	font-family: var(--font-primary);
+	font-weight: var(--regular);
+	color: var(--colour-primary);
+	margin: 2rem 0 2rem 0;
+	line-height: 2rem;
+	padding: 2rem;
+	max-width: 35ch;
+	text-align: center;
+	text-wrap: balance;
 }
 
 h2 {
@@ -17,17 +30,6 @@ h2 {
 
 [data-theme="light"] h2 {
 	color: var(--colour-secondary);
-}
-
-.contact {
-	& p {
-		font-family: var(--font-primary);
-		font-weight: var(--regular);
-		color: var(--colour-primary);
-		margin: 2rem 0 2rem 0;
-		max-width: 65ch;
-		line-height: 1.5rem;
-	}
 }
 
 [data-theme="light"] .contact {
@@ -107,8 +109,8 @@ label {
 
 .error {
 	color: var(--colour-error);
-	font-family: var(--font-primary);
-	font-weight: var(--bold);
+	font-family: var(--font-secondary);
+	font-weight: var(--regular);
 	margin-top: 0.5rem;
 	font-size: 0.9rem;
 }

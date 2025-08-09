@@ -1,17 +1,18 @@
 h3 {
-	margin: 2rem;
+	margin: 1rem;
 	font-family: var(--font-secondary);
 	font-weight: var(--semi-bold);
-	font-size: 1.5rem;
+	font-size: 1.3rem;
+	text-align: center;
 }
 
 h4 {
 	font-family: var(--font-secondary);
 	font-weight: var(--extra-light);
-	font-size: 1.1rem;
+	font-size: 1rem;
 	color: var(--colour-primary);
 	text-align: center;
-	margin-left: 2rem;
+	margin-left: 1rem;
 }
 
 .instructions {
@@ -31,10 +32,10 @@ h4 {
 
 .card-content {
 	& p {
-		margin: 2rem;
+		margin: 1rem;
 		text-align: left;
 		line-height: 2rem;
-		font-size: 1rem;
+		font-size: 0.9rem;
 		font-weight: var(--semi-bold);
 		font-family: var(--font-primary);
 	}
@@ -54,16 +55,15 @@ h4 {
 
 .card {
 	background-color: rgb(4, 4, 4);
-	border-left: 5px solid var(--gold);
-	border-bottom: 1px solid var(--gold);
+	border: 2px solid var(--gold);
 	border-radius: 10px;
 	color: var(--colour-primary);
 	height: 650px;
-	width: 100%;
+	width: 85%;
 	scroll-snap-align: start;
 	flex-shrink: 0;
 
-	margin-right: 100px;
+	margin-right: 20px;
 	border-radius: 10px;
 	transform-origin: center center;
 	transform: scale(1);
@@ -82,7 +82,8 @@ h4 {
 
 .card-img {
 	width: 100%;
-	object-fit: cover;
+	height: 100%;
+	object-fit: fill;
 	border-radius: 10px;
 	transition: transform 0.3s ease;
 }
@@ -123,7 +124,7 @@ h4 {
 		background: linear-gradient(
 			to top,
 			rgb(0, 0, 0) 45%,
-			rgba(0, 0, 0, 0.982) 70%,
+			rgba(0, 0, 0, 0.982) 90%,
 			transparent 100%
 		);
 		z-index: -1;
@@ -155,7 +156,14 @@ h4 {
 .tech-container {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 1rem 0 0 1.5rem;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.tech-btns {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .tech {
