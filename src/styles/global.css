@@ -38,7 +38,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	transition: cubic-bezier(0.55, 0.09, 0.68, 0.53) 0.3s allow-discrete;
+	transition: cubic-bezier(0.55, 0.09, 0.68, 0.53) 0.3s;
 
 	open {
 		animation: open 0.3s forwards;
