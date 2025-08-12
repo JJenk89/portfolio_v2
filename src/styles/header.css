@@ -60,6 +60,11 @@ header {
 		display: none;
 	}
 
+	.logo > img {
+		height: 75px;
+		width: 120px;
+	}
+
 	.mode-toggle {
 		margin-left: 0;
 		margin-right: 0;
@@ -68,6 +73,10 @@ header {
 
 	.desktop-nav {
 		margin: 0 0 0 auto;
+	}
+
+	.desktop-nav a {
+		padding: 0.5rem 0.5rem;
 	}
 
 	[data-theme="light"] a {

@@ -198,6 +198,7 @@ const projects = [
 		observerCallback,
 		observerOptions
 	);
+
 	cards.forEach((card) => observer.observe(card));
 	if (!hasHover) {
 		cards.forEach((card) => {
@@ -214,6 +215,13 @@ const projects = [
 				// If this card wasn't active, make it active
 				if (!isActive) {
 					card.classList.add("active");
+					img.forEach((image) => {
+						image.classList.add("blur");
+					});
+				} else {
+					img.forEach((image) => {
+						image.classList.remove("blur");
+					});
 				}
 			});
 		});
@@ -223,6 +231,9 @@ const projects = [
 			if (!e.target || !(e.target as Element).closest(".card")) {
 				cards.forEach((card) => card.classList.remove("active"));
 			}
+			img.forEach((image) => {
+				image.classList.remove("blur");
+			});
 		});
 	}
 </script>

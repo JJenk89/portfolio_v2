@@ -61,10 +61,6 @@ span {
 	line-height: 30px;
 }
 
-[data-theme="light"] .hero-subtitle {
-	margin-bottom: 50%;
-}
-
 .hero-btns a {
 	border-radius: 10px;
 	border: var(--btn-border-dark);
@@ -109,14 +105,11 @@ span {
 	.hero-description {
 		text-align: left;
 		max-width: 35ch;
+		margin: 33% 2rem 15% 2rem;
 	}
 
 	[data-theme="light"] .hero-content {
 		height: 100vh;
-	}
-
-	[data-theme="light"] .hero-subtitle {
-		margin-bottom: 20%;
 	}
 }
 
@@ -184,7 +177,7 @@ span {
 		padding: 2rem 0 0 4rem;
 		font-size: 2.8rem;
 		line-height: 50px;
-		width: 71%;
+		width: 50%;
 		text-align: left;
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;

@@ -51,6 +51,11 @@ h4 {
 	height: 100%;
 	margin: 2.5rem auto;
 	overflow-y: hidden;
+	scrollbar-width: none;
+}
+
+.cards::-webkit-scrollbar {
+	display: none;
 }
 
 .card {
@@ -88,9 +93,8 @@ h4 {
 	transition: transform 0.3s ease;
 }
 
-.card:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.blur {
+	filter: blur(4px);
 }
 
 .card-slide-content {
@@ -267,6 +271,12 @@ h4 {
 	h4 {
 		font-size: 1rem;
 	}
+
+	.card:hover {
+		& img {
+			filter: blur(4px);
+		}
+	}
 }
 
 /* DESKTOP STYLES */
@@ -283,7 +293,7 @@ h4 {
 		position: relative;
 		margin-right: 0px;
 		flex-shrink: 1;
-		margin-right: 40px;
+		margin-right: 20px;
 		border-radius: 10px;
 		height: 500px;
 		width: 400px;
@@ -299,15 +309,10 @@ h4 {
 
 	.card-content {
 		& p {
-			font-size: 1rem;
-			line-height: 1.8rem;
+			font-size: 0.8rem;
+			line-height: 1.5rem;
 			margin: 0.5rem;
 		}
-	}
-
-	.card:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 	}
 
 	.card-slide-content {
@@ -376,5 +381,34 @@ h4 {
 	.instructions {
 		padding: 2rem;
 		text-align: center;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.cards {
+		width: 80vw;
+	}
+
+	.card {
+		height: 600px;
+		width: 500px;
+	}
+
+	.card-content {
+		& p {
+			font-size: 1rem;
+			line-height: 1.8rem;
+			margin: 0.5rem;
+		}
+	}
+
+	.tech-btns {
+		padding: 1rem;
+	}
+
+	.tech {
+		width: 5rem;
+		height: 1.5rem;
+		font-size: 0.75rem;
 	}
 }

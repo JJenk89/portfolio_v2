@@ -22,8 +22,13 @@ import Footer from "../components/Footer.astro";
 			<p>Then fill in the form below and let me know!</p>
 		</div>
 
-		<div id="form-message" class="form-message" style="display: none;">
-		</div>
+		<dialog id="success-dialog" class="success-dialog">
+			<div class="dialog-content">
+				<h3>Success!</h3>
+				<p>Thank you! Your message has been sent successfully.</p>
+				<button id="close-dialog" class="dialog-button">Close</button>
+			</div>
+		</dialog>
 
 		<form action="" id="contact-form" method="post">
 			<label for="name">Name:</label>
@@ -101,6 +106,13 @@ import Footer from "../components/Footer.astro";
 		"form-message"
 	) as HTMLDivElement;
 
+	const successDialog = document.getElementById(
+		"success-dialog"
+	) as HTMLDialogElement;
+	const closeDialogBtn = document.getElementById(
+		"close-dialog"
+	) as HTMLButtonElement;
+
 	// Clear previous error messages
 	function clearErrors(): void {
 		const errorElements = form?.querySelectorAll(".error");
@@ -127,7 +139,37 @@ import Footer from "../components/Footer.astro";
 		});
 	}
 
-	// Show form message
+	//Display modal
+	function showSuccessDialog(): void {
+		if (successDialog) {
+			successDialog.showModal();
+		}
+	}
+
+	if (closeDialogBtn) {
+		closeDialogBtn.addEventListener("click", () => {
+			successDialog?.close();
+		});
+	}
+
+	function showError(message: string, type: "error" | ""): void {
+		// You can keep error messages inline or implement a toast/notification
+		if (!formMessage) return;
+
+		formMessage.textContent = message;
+		formMessage.className = "form-message";
+
+		if (type) {
+			formMessage.classList.add(type);
+			formMessage.style.display = "block";
+		} else {
+			formMessage.style.display = "none";
+		}
+		console.error(message);
+		// Or show error in a specific error element if you prefer
+	}
+
+	/* // Show form message
 	function showMessage(
 		message: string,
 		type: "success" | "error" | ""
@@ -143,7 +185,7 @@ import Footer from "../components/Footer.astro";
 		} else {
 			formMessage.style.display = "none";
 		}
-	}
+	} */
 
 	// Set loading state
 	function setLoading(isLoading: boolean): void {
@@ -186,7 +228,7 @@ import Footer from "../components/Footer.astro";
 			e.preventDefault();
 
 			clearErrors();
-			showMessage("", "");
+			showError("", "");
 
 			const formData = new FormData(form);
 
@@ -207,16 +249,13 @@ import Footer from "../components/Footer.astro";
 				const result = await response.json();
 
 				if (response.ok && result.success) {
-					showMessage(
-						"Thank you! Your message has been sent successfully.",
-						"success"
-					);
+					showSuccessDialog();
 					form.reset();
 				} else {
 					if (result.details && Array.isArray(result.details)) {
 						displayFieldErrors(result.details);
 					}
-					showMessage(
+					showError(
 						result.error ||
 							"Failed to send message. Please try again.",
 						"error"
@@ -224,7 +263,7 @@ import Footer from "../components/Footer.astro";
 				}
 			} catch (error) {
 				console.error("Form submission error:", error);
-				showMessage(
+				showError(
 					"Network error. Please check your connection and try again.",
 					"error"
 				);

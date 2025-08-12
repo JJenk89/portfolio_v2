@@ -204,7 +204,7 @@ dialog {
 	}
 
 	.cards {
-		margin: 0 0 0 auto;
+		margin: 0 auto 6rem auto;
 		justify-items: center;
 		align-items: center;
 	}
@@ -216,7 +216,7 @@ dialog {
 	.desktop-description {
 		font-size: 1.2rem;
 		line-height: 2.5rem;
-		max-width: 40ch;
+		max-width: 60ch;
 		text-wrap: balance;
 		text-align: left;
 		margin: 0 auto;
