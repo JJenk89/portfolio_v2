@@ -8,8 +8,36 @@ footer {
 	align-items: center;
 	justify-content: center;
 	margin-top: auto;
-
 	width: 100%;
+}
+
+.footer-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.acknowledgements {
+	font-size: 0.7rem;
+
+	& p {
+		margin: 1rem 0 0 0;
+	}
+
+	& ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	li {
+		margin: 0.5rem 0;
+	}
+
+	a {
+		color: var(--colour-primary);
+	}
 }
 
 .social-links {

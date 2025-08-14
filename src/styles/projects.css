@@ -76,6 +76,10 @@ h4 {
 	position: relative;
 }
 
+[data-theme="light"] .card {
+	border: 2px solid var(--colour-secondary);
+}
+
 .card-content {
 	height: 100%;
 	display: flex;
