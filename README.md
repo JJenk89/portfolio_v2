@@ -22,6 +22,22 @@ A modern, performance-focused portfolio website built with Astro, showcasing web
 - **SEO:** Astro SEO Plugin
 - **Deployment:** Vercel
 
+## Project Structure
+
+<pre>
+├───public
+│   ├───images
+│   └───screenshots
+└───src
+    ├───assets
+    │   └───icons
+    ├───components
+    ├───layouts
+    ├───pages
+    │   └───api
+    └───styles
+</pre>
+
 ## Performance
 
 - Lighthouse Score: 95+ across all metrics
