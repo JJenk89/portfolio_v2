@@ -48,5 +48,5 @@ A modern, performance-focused portfolio website built with Astro, showcasing web
 ## Contact
 JJenk89
 
-Portfolio contact form: https://jjenk89.dev/contact
-GitHub: @JJenk89
+- Portfolio contact form: https://jjenk89.dev/contact
+- GitHub: [@JJenk89](https://github.com/JJenk89)
