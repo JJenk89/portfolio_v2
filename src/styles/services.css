@@ -53,11 +53,13 @@ h3 {
 }
 
 dialog {
-	transition: display 0.7s allow-discrete, overlay 0.7s allow-discrete;
+	transition:
+		display 0.4s allow-discrete,
+		overlay 0.4s allow-discrete;
 
-	animation: close 0.7s backwards;
+	animation: close 0.4s backwards;
 	&[open] {
-		animation: open 0.7s forwards;
+		animation: open 0.4s forwards;
 	}
 }
 

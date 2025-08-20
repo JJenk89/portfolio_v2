@@ -185,7 +185,7 @@ dialog::backdrop {
 	}
 
 	.contact {
-		height: 102vh;
+		height: 150vh;
 		& p {
 			max-width: 21ch;
 			text-wrap: balance;

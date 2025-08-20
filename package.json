@@ -9,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^8.2.5",
+    "@astrojs/sitemap": "^3.5.0",
+    "@astrojs/vercel": "^8.0.4",
     "astro": "^5.11.0",
+    "astro-seo": "^0.8.4",
     "nodemailer": "^7.0.5",
     "vite": "^7.0.2"
   },

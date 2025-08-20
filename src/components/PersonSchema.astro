@@ -1,0 +1,19 @@
+---
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Jason Jenkinson",
+	url: "https://jjenk89.dev",
+	sameAs: [
+		"https://github.com/JJenk89",
+		"https://www.instagram.com/jjenk_89/",
+	],
+	jobTitle: "Web Developer",
+	worksFor: {
+		"@type": "Organization",
+		name: "Freelance",
+	},
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

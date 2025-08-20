@@ -1,5 +1,4 @@
 footer {
-	color: var(--colour-primary);
 	font-family: var(--font-primary);
 	font-weight: var(--light);
 	font-size: 0.8rem;
@@ -35,8 +34,12 @@ footer {
 		margin: 0.5rem 0;
 	}
 
-	a {
+	[data-theme="dark"] & a {
 		color: var(--colour-primary);
+	}
+
+	[data-theme="light"] & a {
+		color: var(--colour-secondary);
 	}
 }
 
@@ -51,6 +54,10 @@ footer {
 
 .social-links li {
 	margin: 0 1rem;
+}
+
+[data-theme="dark"] footer {
+	color: var(--colour-primary);
 }
 
 [data-theme="light"] footer {
