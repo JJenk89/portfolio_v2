@@ -9,18 +9,16 @@ const pageTitle = Astro.props.title || "Web Developer";
 		<SEO
 			title={`JJenk89 - ${pageTitle}`}
 			description="Welcome to my portfolio. Here you can get a feel for my work and style as a web developer."
-			canonical="https://jjenk89.dev"
+			canonical={`https://jjenk89.dev${Astro.url.pathname}`}
 			openGraph={{
 				basic: {
 					title: "JJenk89 - Web Developer",
-					type: "og:image",
+					type: "website",
 					url: "https://jjenk89.dev",
-					image: "/images/OG.png",
+					image: "https://jjenk89.dev/images/OG.png",
 				},
 				optional: {
 					locale: "en_GB",
-					description:
-						"Welcome to my portfolio. Here you can get a feel for my work and style as a web developer.",
 				},
 			}}
 			extend={{
@@ -33,11 +31,13 @@ const pageTitle = Astro.props.title || "Web Developer";
 				],
 				meta: [
 					{
-						name: "JJenk89, Jason Jenkinson",
-					},
-					{
+						name: "keywords",
 						content:
 							"web development, web developer, frontend, portfolio, JJenk89, Jason Jenkinson, web design, web apps, web copy, copywriting, UK, Austria, Vienna, English, German",
+					},
+					{
+						name: "author",
+						content: "Jason Jenkinson",
 					},
 				],
 			}}
