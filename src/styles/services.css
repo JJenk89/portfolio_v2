@@ -39,7 +39,7 @@ h3 {
 [data-theme="light"] .services {
 	color: var(--colour-secondary);
 	font-family: var(--font-primary);
-	background: url("/images/services-dark-sm.png") no-repeat center center;
+	background: url("/images/services-dark-sm.webp") no-repeat center center;
 	background-size: cover;
 	min-height: 100vh;
 }
@@ -47,7 +47,7 @@ h3 {
 [data-theme="dark"] .services {
 	color: var(--colour-primary);
 	font-family: var(--font-primary);
-	background: url("/images/services-dark-sm.png") no-repeat center center;
+	background: url("/images/services-dark-sm.webp") no-repeat center center;
 	background-size: cover;
 	min-height: 100vh;
 }

@@ -1,52 +1,36 @@
-# Astro Starter Kit: Basics
+# JJenk89 - Web Developer Portfolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+A modern, performance-focused portfolio website built with Astro, showcasing web development projects and services. The site features a clean, responsive design with light/dark mode functionality and an integrated contact system.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+# Live site
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Features
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- **Lightning Fast:** Built with Astro for optimal performance and SEO
+- **Responsive Design:** Fully responsive across all device sizes
+- **Dark/Light Mode:** Toggle between themes with persistent preference
+- **Dynamic Projects:** Projects rendered from JavaScript objects for easy maintenance
+- **Contact Integration:** Custom contact form with direct email functionality
+- **SEO Optimised:** Enhanced with Astro SEO plugin for better search visibility
+- **Modern CSS:** Clean styling with vanilla CSS organised by components
 
-## 🚀 Project Structure
+## Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Framework:** Astro
+- **Styling:** Vanilla CSS (modular approach)
+- **Email Service:** Nodemailer
+- **SEO:** Astro SEO Plugin
+- **Deployment:** Vercel
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Performance
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Lighthouse Score: 95+ across all metrics
+- Bundle Size: Minimal JavaScript footprint thanks to Astro
+- SEO Optimised: Meta tags, structured data, and semantic HTML
+- Fast Loading: WebP images and minimal client-side JavaScript
 
-## 🧞 Commands
+## Contact
+JJenk89
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Portfolio contact form: https://jjenk89.dev/contact
+GitHub: @JJenk89
