@@ -83,7 +83,7 @@ span {
 [data-theme="light"] .view-btn {
 	background-color: var(--colour-secondary);
 	color: var(--gold);
-	border: 2px solid var(--colour-secondary) !important;
+	border: 2px solid var(--gold) !important;
 }
 
 .contact-btn {
