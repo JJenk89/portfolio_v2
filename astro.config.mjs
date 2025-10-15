@@ -4,8 +4,10 @@ import sitemap from "@astrojs/sitemap";
 
 import vercel from "@astrojs/vercel";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
-	adapter: vercel(),
-	integrations: [sitemap()],
+    adapter: cloudflare(),
+    integrations: [sitemap()],
 });
