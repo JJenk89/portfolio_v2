@@ -201,6 +201,10 @@ h4 {
 		color: var(--colour-primary);
 		text-decoration: underline;
 	}
+
+	[data-theme="light"] & a {
+		color: var(--colour-primary);
+	}
 }
 
 [data-theme="light"] h2 {

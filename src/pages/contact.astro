@@ -4,6 +4,8 @@ import "../styles/contact.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+//TODO: rework contact form to work with Cloudflare Workers
 ---
 
 <Layout title="Get In Touch">
@@ -12,14 +14,24 @@ import Footer from "../components/Footer.astro";
 		<h2 id="contact">Get in Touch</h2>
 
 		<div class="contact-text">
-			<p>
+			<!-- <p>
 				<b>Like</b> what you've seen? Fancy your <b>own website?</b> Want
 				to give me a
 				<b>job?</b>
 			</p>
 			<br />
 
-			<p>Then fill in the form below and let me know!</p>
+			<p>Then fill in the form below and let me know!</p> -->
+
+			<p>
+				This contact form is currently being reworked due to hosting
+				issues.
+			</p>
+			<br />
+			<p>
+				In the meantime, feel free to reach out to me via the social
+				media links at the bottom of the page!
+			</p>
 		</div>
 
 		<dialog id="success-dialog" class="success-dialog">
@@ -30,7 +42,7 @@ import Footer from "../components/Footer.astro";
 			</div>
 		</dialog>
 
-		<form action="" id="contact-form" method="post">
+		<!-- <form action="" id="contact-form" method="post">
 			<label for="name">Name:</label>
 			<div class="form-group">
 				<input
@@ -79,7 +91,7 @@ import Footer from "../components/Footer.astro";
 					>
 				</button>
 			</div>
-		</form>
+		</form> -->
 	</section>
 </Layout>
 <Footer />
